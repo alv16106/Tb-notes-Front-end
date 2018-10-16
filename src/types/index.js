@@ -1,0 +1,18 @@
+//Notes
+export const NOTE_ADDED = 'NOTE_ADDED';
+export const NOTE_REMOVED = 'NOTE_REMOVED';
+export const NOTE_SHARED = 'NOTE_SHARED';
+
+//Notebooks
+export const NOTEBOOK_ADDED = 'NOTEBOOK_ADDED';
+export const NOTEBOOK_REMOVED = 'NOTEBOOK_REMOVED';
+export const NOTEBOOK_COLOR_CHANGED = 'NOTEBOOK_COLOR_CHANGED';
+
+//Friends
+export const FRIEND_ADDED = 'FRIEND_ADDED';
+export const FRIEND_REMOVED = 'FRIEND_REMOVED';
+
+//General
+export const USER_AUTHENTICATED = 'USER_AUTHENTICATED';
+export const ERROR_RAISED = 'ERROR_RAISED';
+export const CHANGE_SUCCEDED = 'CHANGE_SUCCEDED';
