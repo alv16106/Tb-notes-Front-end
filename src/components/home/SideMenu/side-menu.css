@@ -1,0 +1,7 @@
+.sideMenu {
+    display: flex;
+    flex-direction: row;
+    background: gray;
+    width: 15%;
+    min-width: 12rem;
+}
