@@ -35,7 +35,7 @@ export const showError = (
 export const showSucceed = (
   succedMsg
 ) = ({
-  type: types.CHANGE_SUCCEDED,
+  type: types.REQUEST_SUCCEDED,
   payload: {
     succedMsg,
   }
