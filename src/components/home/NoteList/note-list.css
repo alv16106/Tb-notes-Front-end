@@ -1,0 +1,7 @@
+.noteList {
+    display: flex;
+    flex-direction: row;
+    background: green;
+    width: 25%;
+    min-width: 18rem;
+}

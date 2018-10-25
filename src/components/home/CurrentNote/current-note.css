@@ -1,0 +1,5 @@
+.currentNote {
+    display: flex;
+    background: black;
+    flex-grow: 1;
+}

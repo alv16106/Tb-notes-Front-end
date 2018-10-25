@@ -1,0 +1,13 @@
+.sideMenu {
+    display: flex;
+    flex-direction: row;
+    background: rgb(39, 39, 39);
+    width: 15%;
+    min-width: 12rem;
+    padding:  2rem 0rem ;
+}
+
+.menuList {
+    padding: 0;
+    width: 100%;
+}
