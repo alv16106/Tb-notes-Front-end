@@ -7,7 +7,7 @@ export const addNote = (
   body,
   notebook
 ) => ({
-  type: types.NOTE_ADDED,
+  type: types.ADD_NOTE_REQUESTED,
   payload: {
     id,
     title,
@@ -20,7 +20,7 @@ export const addNote = (
 export const removeNote = (
   id,
 ) => ({
-  type: types.NOTE_REMOVED,
+  type: types.REMOVE_NOTE_REQUESTED,
   payload: {
     id,
   }
@@ -31,7 +31,7 @@ export const shareNote = (
   from,
   to
 ) => ({
-  type: types.NOTE_REMOVED,
+  type: types.SHARE_NOTE_REQUESTED,
   payload: {
     id,
     from,

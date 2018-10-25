@@ -6,7 +6,7 @@ import * as notebookActions from './notebook';
 export const addFriend = (
   friend,
 ) => ({
-  type: types.FRIEND_ADDED,
+  type: types.ADD_FRIEND_REQUESTED,
   payload: {
     friend
   }
@@ -15,7 +15,7 @@ export const addFriend = (
 export const removeFriend = (
   friend,
 ) => ({
-  type: types.FRIEND_REMOVED,
+  type: types.REMOVE_FRIEND_REQUESTED,
   payload: {
     friend,
   }
@@ -45,7 +45,7 @@ export const authUser = (
   username,
   password
 ) => ({
-  type: types.USER_AUTHENTICATED,
+  type: types.USER_LOGIN_REQUEST,
   payload: {
     username,
     password

@@ -7,7 +7,7 @@ export const addNotebook = (
   color,
   owner
 ) => ({
-  type: types.NOTEBOOK_ADDED,
+  type: types.ADD_NOTEBOOK_REQUESTED,
   payload: {
     id,
     name,
@@ -19,7 +19,7 @@ export const addNotebook = (
 export const removeNotebook = (
   id,
 ) => ({
-  type: types.NOTEBOOK_REMOVED,
+  type: types.REMOVE_NOTEBOOK_REQUESTED,
   payload: {
     id,
   }
