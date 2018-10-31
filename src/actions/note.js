@@ -106,4 +106,7 @@ export const updateNoteSuccess = () => ({
 
 
 //NOTEBOOKS
-//fetch all
+//fetch 
+export const fetchNotebooksRequest = () => ({
+  
+})
