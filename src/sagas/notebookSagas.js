@@ -1,12 +1,29 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put, select } from 'redux-saga/effects'
 import * as types from '../types'
 import { BASE_API_URL } from '../constants'
 import { get, change } from './apiInterface';
 
+import reducers, * as selectors from '../reducers';
+import actions from '../actions';
+
+const get = (url, token) => {
+  fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `JWT ${token}`
+    }
+  })
+    .then( response => response.json() )
+    .catch( error => error );
+}
+
 export function* fetchNotebooksFromNotebook(action) {
   try {
-    const Notebooks = yield call(get, `${BASE_API_URL}/Notebook/`);
-    yield put({ type: types.FETCH_NOTEBOOKS_SUCCESS, payload: Notebooks });
+    const { token, uid } = yield select(selectors.getUser)
+    const Notebooks = yield call(get, `${BASE_API_URL}/cuaderno/${uid}/all-notebooks/`, token);
+
+    yield put(actions.notebooksRequest(Notebooks));
   }
   catch (e) { 
     yield put({type: types.FETCH_NOTEBOOKS_FAILTURE, payload: e});
