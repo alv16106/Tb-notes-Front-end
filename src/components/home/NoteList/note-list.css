@@ -1,7 +1,32 @@
 .noteList {
     display: flex;
     flex-direction: row;
-    background: green;
-    width: 25%;
-    min-width: 18rem;
+    background: rgb(253, 249, 244);
+    width: 18%;
+    min-width: 17rem;
+}
+
+.scroll {
+    overflow-y: scroll;
+}
+
+
+#style-1::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+	border-radius: 0.75rem;
+    background-color: rgba(245, 245, 245, 0);
+}
+
+#style-1::-webkit-scrollbar
+{
+	width: 0.65rem;
+	background-color: rgba(245, 245, 245, 0);
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+	border-radius: 0.75rem;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.5);
+	background-color: rgba(255, 255, 255, 0.685);
 }

@@ -15,10 +15,16 @@ export const logInRequest = (
 })
 
 export const logInSuccess = (
-    token
+    token,
+    id,
+    username
 ) => ({
     type: types.USER_LOG_IN_SUCCESS,
-    payload: { token }
+    payload: {
+        token,
+        id,
+        username
+    }
 })
 
 export const logout = () => ({
