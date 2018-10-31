@@ -1,7 +1,6 @@
 import { createStore } from 'redux';
 
 
-
 const configureStore = () => {
   return createStore(
     //reducer,

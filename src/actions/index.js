@@ -3,53 +3,110 @@ import * as noteActions from './note';
 import * as notebookActions from './notebook';
 
 //General acions
-export const addFriend = (
-  friend,
+export const logInRequest = (
+    username,
+    password,
 ) => ({
-  type: types.ADD_FRIEND_REQUESTED,
-  payload: {
-    friend
-  }
+    type: types.USER_LOG_IN_REQUESTED,
+    payload: {
+        username,
+        password,
+    }
+})
+
+export const logInSuccess = (
+    token
+) => ({
+    type: types.USER_LOG_IN_SUCCESS,
+    payload: { token }
+})
+
+export const logout = () => ({
+    type: types.USER_LOG_OUT_REQUESTED,
+})
+
+export const addFriendRequest = (
+    id,
+    username,
+) => ({
+    type: types.ADD_FRIEND_REQUESTED,
+    payload: {
+        id,
+        username
+    }
 });
 
-export const removeFriend = (
-  friend,
+export const addFriendFailure = (
+    id,
 ) => ({
-  type: types.REMOVE_FRIEND_REQUESTED,
-  payload: {
-    friend,
-  }
+    type: types.ADD_FRIEND_SUCCESS,
+    payload: {
+        id,
+    }
 });
+
+export const addFriendSucces = (
+    old_id,
+    id,
+    username,
+) => ({
+    type: types.ADD_FRIEND_SUCCESS,
+    payload: {
+        old_id,
+        id,
+        username,
+    }
+});
+
+export const removeFriendRequest = (
+    id,
+) => ({
+    type: types.REMOVE_FRIEND_REQUESTED,
+    payload: {
+        id
+    }
+});
+
+export const removeFriendFailure = (
+    id,
+    username,
+) => ({
+    type: types.ADD_FRIEND_FAILURE,
+    payload: {
+        id,
+        username
+    }
+})
 
 export const showError = (
-  errorCode,
-  errorMsg
-) = ({
-  type: types.ERROR_RAISED,
-  payload: {
     errorCode,
-    errorMsg,
-  }
+    errorMsg
+) = ({
+    type: types.ERROR_RAISED,
+    payload: {
+        errorCode,
+        errorMsg,
+    }
 });
 
 export const showSucceed = (
-  succedMsg
+    succedMsg
 ) = ({
-  type: types.REQUEST_SUCCEDED,
-  payload: {
-    succedMsg,
-  }
+    type: types.REQUEST_SUCCEDED,
+    payload: {
+        succedMsg,
+    }
 });
 
 export const authUser = (
-  username,
-  password
-) => ({
-  type: types.USER_LOGIN_REQUEST,
-  payload: {
     username,
     password
-  }
+) => ({
+    type: types.USER_LOGIN_REQUEST,
+    payload: {
+        username,
+        password
+    }
 });
 
 
