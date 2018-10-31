@@ -14,7 +14,7 @@ export const notesRequestSuccess = ( notes ) => ({
 
 // NOTE
 // fetch
-export const noteRequest = (id) => ({
+export const noteRequest = ( id ) => ({
   type: types.FETCH_NOTE_REQUESTED,
   payload: { id }
 })
@@ -45,17 +45,23 @@ export const addNoteRequest = (
   }
 });
 export const addNoteSuccess = (
+  old_id,
   id,
   title,
   body,
 ) => ({
   type: types.ADD_NOTE_SUCCESS,
   payload: {
+    old_id,
     id,
     title,
     body,
   }
 });
+export const addNoteFail = (id) => ({
+  type: types.ADD_FRIEND_FAILURE,
+  payload: { id }
+})
 
 // remove
 export const removeNoteRequest = (
@@ -90,23 +96,17 @@ export const shareNoteRequest = (
 })
 
 //update
-export const updateNoteRequest = (
-  id, title, body
+export const updateNoteRequest = () => ({
+  type: types.UPDATE_NOTE_REQUESTED,
+})
+export const updateNoteSuccess = (
+  old_id, id, title, body
 ) => ({
   type: types.UPDATE_NOTE_REQUESTED,
   payload: {
+    old_id,
     id,
     title,
     body
   }
-})
-export const updateNoteSuccess = () => ({
-  type: types.UPDATE_NOTE_SUCCESS,
-})
-
-
-//NOTEBOOKS
-//fetch 
-export const fetchNotebooksRequest = () => ({
-  
 })

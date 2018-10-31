@@ -1,0 +1,42 @@
+.itemNoteContainer {
+    list-style: none;
+    width: 100%;
+    font-size: 1.15rem;
+    color: rgb(119, 119, 119);
+    cursor: pointer;
+    border-bottom: solid rgba(172, 172, 172, 0.3);
+    border-width: 1.25px 0px;
+    padding: 0rem 0rem 0.10rem 0rem;
+}
+
+.itemNote {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 3rem;
+}
+
+a.item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: 0.25s;
+    transition-timing-function: ease-in-out;
+}
+
+.icon {
+    padding: 0 1.25rem 0 1.75rem;
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.color {
+    display: flex;
+    min-width: 3rem;
+    max-width: 3rem;
+    height: 100%;
+
+}

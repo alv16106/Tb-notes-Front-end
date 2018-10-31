@@ -15,6 +15,30 @@ const token = (state = '', action) => {
     }
 }
 
+const uid = (state = 0, action) => {
+    switch (action.type) {
+        case types.USER_LOG_IN_SUCCESS: {
+            const { id } = action.payload;
+            return id;
+        }
+        default: {
+            return state;
+        }
+    }
+}
+
+const username = (state = 0, action) => {
+    switch (action.type) {
+        case types.USER_LOG_IN_SUCCESS: {
+            const { username } = action.payload;
+            return username;
+        }
+        default: {
+            return state;
+        }
+    }
+}
+
 //friend list
 const byId = (state = {}, action) => {
     switch (action.type) {
@@ -110,5 +134,7 @@ const friendList = combineReducers({byId, order});
 
 export default combineReducers({
     token,
+    uid,
+    username,
     friendList
 }); 
