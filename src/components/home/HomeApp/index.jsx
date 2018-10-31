@@ -14,7 +14,7 @@ class HomeApp extends React.Component {
 
     constructor(props) {
         super(props)
-        this.login = this.props.fetchAll;
+        this.login = this.props.login;
     }
 
     componentWillMount() {

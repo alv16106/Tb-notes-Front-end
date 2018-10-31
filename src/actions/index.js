@@ -94,9 +94,19 @@ export const authUser = (
 });
 
 
+export const notesRequest = noteActions.notesRequest;
+export const notesRequestSuccess = noteActions.notesRequestSuccess;
+export const noteRequest = noteActions.noteRequest;
+export const noteSuccess = noteActions.noteSuccess;
+
 export const addNoteRequest = noteActions.addNoteRequest;
-export const shareNote = noteActions.shareNote;
-export const removeNote = noteActions.removeNote;
+export const addNoteSuccess = noteActions.addNoteSuccess;
+export const addNoteFail = noteActions.addNoteFail;
+export const removeNoteRequest = noteActions.removeNoteRequest;
+export const removeNoteSuccess = noteActions.removeNoteSuccess;
+export const shareNoteRequest = noteActions.shareNoteRequest;
+export const updateNoteRequest = noteActions.updateNoteRequest;
+export const updateNoteSuccess = noteActions.updateNoteSuccess;
 
 export const addNotebookRequest = notebookActions.addNotebookRequest;
 export const addNotebookSuccess = notebookActions.addNotebookSuccess;

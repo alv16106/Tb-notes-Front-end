@@ -6,13 +6,15 @@ import { get, change } from './apiInterface';
 import reducers, * as selectors from '../reducers';
 import * as actions from '../actions';
 
-const postLogin = () => {
-    fetch(url, {
+const postLogin = (url, username, password) => {
+    const user = JSON.stringify({
+        username: username,
+        password: password,
+    })
+    console.log(user)
+    return fetch(url, {
         method: 'POST',
-        body: {
-            username,
-            password,
-        },
+        body: user,
         headers: {
             'Content-Type': 'application/json',
         }
@@ -22,7 +24,8 @@ const postLogin = () => {
 
 export function* fetchLogIn(action) {
     const { username, password } = action.payload;
-    const user = yield call(get, 'http://127.0.0.1:8000/auth-jwt/');
+    console.log(username, password);
+    const user = yield call(postLogin, 'http://127.0.0.1:8000/auth-jwt/', username, password);
     console.log(user);
     yield put(actions.logInSuccess(user.token, user.userid, user.username));
 }
