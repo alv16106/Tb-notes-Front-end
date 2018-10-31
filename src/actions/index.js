@@ -82,26 +82,6 @@ export const removeFriendSuccess = (
     }
 })
 
-export const showError = (
-    errorCode,
-    errorMsg
-) = ({
-    type: types.ERROR_RAISED,
-    payload: {
-        errorCode,
-        errorMsg,
-    }
-});
-
-export const showSucceed = (
-    succedMsg
-) = ({
-    type: types.REQUEST_SUCCEDED,
-    payload: {
-        succedMsg,
-    }
-});
-
 export const authUser = (
     username,
     password
@@ -118,6 +98,7 @@ export const notesRequest = noteActions.notesRequest;
 export const notesRequestSuccess = noteActions.notesRequestSuccess;
 export const noteRequest = noteActions.noteRequest;
 export const noteSuccess = noteActions.noteSuccess;
+
 export const addNoteRequest = noteActions.addNoteRequest;
 export const addNoteSuccess = noteActions.addNoteSuccess;
 export const addNoteFail = noteActions.addNoteFail;

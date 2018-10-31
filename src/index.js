@@ -8,7 +8,10 @@ import configureStore from './configureStore';
 
 import HomeApp from './components/home/HomeApp';
 
+import actions from './actions';
+
 const store = configureStore();
+
 
 ReactDOM.render(
     <Provider store={store}>
