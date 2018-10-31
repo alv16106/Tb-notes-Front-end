@@ -1,12 +1,37 @@
 import * as types from '../types';
 
 // Notes related actions
-// notas all 
+// NOTES
+//fetch
 export const notesRequest = () => ({
   type: types.FETCH_NOTES_REQUESTED,
 })
 
-// notas una
+export const notesRequestSuccess = ( notes ) => ({
+  type: types.FETCH_NOTES_SUCCESS,
+  payload: { notes }
+})
+
+// NOTE
+// fetch
+export const noteRequest = (id) => ({
+  type: types.FETCH_NOTE_REQUESTED,
+  payload: { id }
+})
+export const noteSuccess = (
+  id, 
+  title,
+  body,
+) => ({
+  type: types.FETCH_NOTE_SUCCESS,
+  payload: {
+    id,
+    title,
+    body,
+  }
+})
+
+// add
 export const addNoteRequest = (
   id,
   title,
@@ -19,7 +44,6 @@ export const addNoteRequest = (
     body,
   }
 });
-
 export const addNoteSuccess = (
   id,
   title,
@@ -33,14 +57,6 @@ export const addNoteSuccess = (
   }
 });
 
-export const removeNoteFailure = (
-  id,
-) => ({
-  type: types.REMOVE_NOTE_FAILURE,
-  payload: {
-    id,
-  }
-});
 // remove
 export const removeNoteRequest = (
   id,
@@ -50,24 +66,20 @@ export const removeNoteRequest = (
     id,
   }
 });
-
-export const removeNoteFailure = (
+export const removeNoteSuccess = (
   id,
-  title,
-  body,
 ) => ({
   type: types.ADD_NOTE_SUCCESS,
   payload: {
     id,
-    title,
-    body,
   }
 })
 
-export const shareNote = (
+//share
+export const shareNoteRequest = (
   id,
   from,
-  to
+  to,
 ) => ({
   type: types.SHARE_NOTE_REQUESTED,
   payload: {
@@ -75,4 +87,23 @@ export const shareNote = (
     from,
     to
   }
-});
+})
+
+//update
+export const updateNoteRequest = (
+  id, title, body
+) => ({
+  type: types.UPDATE_NOTE_REQUESTED,
+  payload: {
+    id,
+    title,
+    body
+  }
+})
+export const updateNoteSuccess = () => ({
+  type: types.UPDATE_NOTE_SUCCESS,
+})
+
+
+//NOTEBOOKS
+//fetch all

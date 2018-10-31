@@ -52,24 +52,12 @@ const byId = (state = {}, action) => {
             return new_state;
         }
 
-        case types.REMOVE_FRIEND_REQUESTED: {
+        case types.REMOVE_FRIEND_SUCCESS: {
             const { id } = action.payload;
             const new_state = state;
             delete new_state[id];
             return new_state;
         }
-
-        case types.REMOVE_FRIEND_FAILURE: {
-            const { id, username } = action.payload;
-            return {
-                ...state,
-                [id]: {
-                    id,
-                    username
-                }
-            }
-        }
-
 
         default: {
             return state;
@@ -105,19 +93,11 @@ const order = (state = [], action) => {
             return new_state;
         }
 
-        case types.REMOVE_FRIEND_REQUESTED: {
+        case types.REMOVE_FRIEND_SUCCESS: {
             const { id } = action.payload;
             const new_state = state;
             delete new_state[id];
             return new_state;
-        }
-
-        case types.REMOVE_FRIEND_FAILURE: {
-            const { id } = action.payload;
-            return [
-                ...state,
-                id
-            ]
         }
 
         default: {

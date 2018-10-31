@@ -67,14 +67,12 @@ export const removeFriendRequest = (
     }
 });
 
-export const removeFriendFailure = (
-    id,
-    username,
+export const removeFriendSuccess = (
+    id
 ) => ({
     type: types.ADD_FRIEND_FAILURE,
     payload: {
-        id,
-        username
+        id
     }
 })
 
