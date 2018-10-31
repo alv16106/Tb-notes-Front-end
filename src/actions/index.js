@@ -108,10 +108,15 @@ export const authUser = (
 });
 
 
-export const addNote = noteActions.addNote;
+export const addNoteRequest = noteActions.addNoteRequest;
 export const shareNote = noteActions.shareNote;
 export const remoeNote = noteActions.removeNote;
 
-export const addNotebook = notebookActions.addNotebook;
-export const removeNotebook = notebookActions.removeNotebook;
-export const changeColor = notebookActions.changeColor;
+export const addNotebookRequest = notebookActions.addNotebookRequest;
+export const addNotebookSuccess = notebookActions.addNotebookSuccess;
+export const removeNotebookRequest = notebookActions.removeNotebookRequest;
+export const removeNotebookSuccess = notebookActions.removeNotebookSuccess;
+export const updateNotebookRequest = notebookActions.updateNotebookRequest;
+export const updateNotebookSuccess = notebookActions.updateNotebookSuccess;
+export const notebooksRequest = notebookActions.notebooksRequest;
+export const notebooksRequestSuccess = notebookActions.notebooksRequestSuccess;
