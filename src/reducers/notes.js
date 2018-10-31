@@ -38,14 +38,10 @@ const byId = (state = {}, action) => {
             }
         }
         case types.ADD_NOTE_FAILURE: {
-            const { id } = action.payload;
-            const index = state.indexOf(id)
-            const new_state = [
-                ...state.slice(0, index),
-                ...state.slice(index+1, state.length)
-            ];
-            console.log(new_state)
-            return new_state;
+          const { id } = action.payload;
+          const new_state = state;
+          delete new_state[id];
+          return new_state; 
         }
         // REMOVED
         case types.REMOVE_NOTE_SUCCESS: {

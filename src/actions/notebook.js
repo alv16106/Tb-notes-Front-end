@@ -29,11 +29,23 @@ export const addNotebookRequest = (
 })
 
 export const addNotebookSuccess = (
+  oldID,
   id
 ) => ({
   type: types.ADD_NOTEBOOK_SUCCESS,
+  payload: {
+    oldID,
+    id
+  }
+})
+
+export const addNotebookFailture = (
+  id
+) => ({
+  type: types.REMOVE_NOTEBOOK_SUCCESS,
   payload: id
 })
+
 
 
 //Remove
