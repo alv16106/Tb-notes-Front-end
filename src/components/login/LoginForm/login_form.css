@@ -10,11 +10,29 @@
 	font-size:17px;
 	padding:16px 31px;
 	text-decoration:none;
+	margin-left: 10px;
 }
+
 .button-blue:hover {
 	background-color:#408c99;
 }
+
 .button-blue:active {
 	position:relative;
 	top:1px;
+}
+
+input {
+	box-shadow: 0 0 3px #ffffff; 
+	margin: 10px 
+}
+
+.valid {
+	box-shadow: 0 0 3px #24e264; 
+	margin: 10px 
+}
+
+.invalid {
+	box-shadow: 0 0 3px #f0291b; 
+	margin: 10px 
 }
