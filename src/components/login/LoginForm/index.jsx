@@ -13,7 +13,7 @@ class LogInForm extends Component {
       const { handleSubmit } = this.props;      
       //const isInvalid = email === '';
       return (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="row">
             <Field
               name = "email"
               label = "Email"
@@ -30,9 +30,12 @@ class LogInForm extends Component {
               id = "password"
               validate={[required, minLength]}
             />
-            <button className="button-blue" type="submit">
-              Sign In
-            </button>
+            <div className="row">
+              <button className="button-blue" type="submit">
+                Sign In
+              </button>
+            </div>
+            
           </form>
       );
     }
