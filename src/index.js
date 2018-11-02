@@ -9,13 +9,14 @@ import configureStore from './configureStore';
 import HomeApp from './components/home/HomeApp';
 
 import actions from './actions';
+import App from './components/App';
 
 const store = configureStore();
 
 
 ReactDOM.render(
     <Provider store={store}>
-        <HomeApp />
+        <App/>
     </Provider>, 
     document.getElementById('root'));
 registerServiceWorker();

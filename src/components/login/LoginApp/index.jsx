@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import LogInForm from '../LoginForm';
 
-import './login-app.css'; 
+class LoginApp extends Component {
+  render() {
+    const { history } = this.props
+    return (
+      <div className = "row">
+        <h1>Sign In</h1>
+        <LogInForm
+          onSubmit={values => console.log(values)}
+        />
+      </div>
+    );
+  }
+}
 
-const LoginApp = () => (
-    <div className="card">
-        
-    </div>
-);
+export default withRouter(LoginApp);
+
+export {
+    LoginApp,
+};

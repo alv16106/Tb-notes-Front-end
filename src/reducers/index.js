@@ -4,6 +4,7 @@ import * as types from '../types';
 
 import user, * as fromUser from './user';
 import notes from './notes';
+import { reducer as formReducer } from 'redux-form';
 
 //selectors
 // user y friends
@@ -16,5 +17,6 @@ export const getFriends = (state) => fromUser.getFriends(state.user);
 export default combineReducers({
     user,
     notes,
+    form: formReducer,
 });
 
