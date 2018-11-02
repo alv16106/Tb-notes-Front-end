@@ -9,29 +9,38 @@ const token = (state = '', action) => {
             const { token } = action.payload;
             return token;
         }
+        case types.USER_LOG_OUT_SUCCESS: {
+            return '';
+        }
         default: {
             return state;
         }
     }
 }
 
-const uid = (state = 0, action) => {
+const uid = (state = -1, action) => {
     switch (action.type) {
         case types.USER_LOG_IN_SUCCESS: {
             const { id } = action.payload;
             return id;
         }
+        case types.USER_LOG_OUT_SUCCESS: {
+            return -1;
+        }
         default: {
             return state;
         }
     }
 }
 
-const username = (state = 0, action) => {
+const username = (state = '', action) => {
     switch (action.type) {
         case types.USER_LOG_IN_SUCCESS: {
             const { username } = action.payload;
             return username;
+        }
+        case types.USER_LOG_OUT_SUCCESS: {
+            return '';
         }
         default: {
             return state;

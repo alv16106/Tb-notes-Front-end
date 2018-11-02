@@ -29,3 +29,7 @@ export function* fetchLogIn(action) {
     console.log(user);
     yield put(actions.logInSuccess(user.token, user.userid, user.username));
 }
+
+export function* fetchLogOut(action) {
+    yield put(actions.logoutSuccess());
+} 

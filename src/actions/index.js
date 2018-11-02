@@ -27,8 +27,12 @@ export const logInSuccess = (
     }
 })
 
-export const logout = () => ({
+export const logoutRequest = () => ({
     type: types.USER_LOG_OUT_REQUESTED,
+})
+
+export const logoutSuccess = () => ({
+    type: types.USER_LOG_OUT_SUCCESS,
 })
 
 export const addFriendRequest = (
