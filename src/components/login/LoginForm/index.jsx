@@ -15,12 +15,12 @@ class LogInForm extends Component {
       return (
           <form onSubmit={handleSubmit} className="row">
             <Field
-              name = "email"
-              label = "Email"
+              name = "username"
+              label = "Usuario"
               component = {customInput}
               type = "text"
-              id = "email"
-              validate={[validEmail]}
+              id = "username"
+              validate={[required]}
             />
             <Field
               name = "password"

@@ -6,7 +6,6 @@ import './home-app.css';
 import SideMenu from '../SideMenu';
 import NoteList from '../NoteList';
 import CurrentNote from '../CurrentNote';
-import { dispatch } from 'rxjs/internal/observable/pairs';
 
 import * as actions from '../../../actions';
 
@@ -36,7 +35,9 @@ export default connect(
     undefined,
     dispatch => ({
         login: () => {
-            dispatch(actions.logInRequest('javier', 'j66352769'))
+            console.log("ree");
+            
+            /* dispatch(actions.logInRequest('javier', 'j66352769')) */
         }
     })
 )(HomeApp);
