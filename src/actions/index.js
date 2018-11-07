@@ -97,6 +97,14 @@ export const authUser = (
     }
 });
 
+export const showNotebookForm = () => ({
+    type: types.SHOW_NOTEBOOK_FORM,
+})
+
+export const hideNotebookForm = () => ({
+    type: types.HIDE_NOTEBOOK_FORM,
+})
+
 
 export const notesRequest = noteActions.notesRequest;
 export const notesRequestSuccess = noteActions.notesRequestSuccess;

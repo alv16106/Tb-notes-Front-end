@@ -13,5 +13,29 @@ export const change = (url, method, body) => fetch(url, {
 
 
 
-export const get = (url) => fetch(url)
-  .then(response => response.json());
+export const get = (url, token) => {
+  fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `JWT ${token}`
+    }
+  })
+    .then( response => response.json() )
+    .catch( error => error );
+}
+
+export const post = (url, token, data) => {
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `JWT ${token}`
+    },
+    body: JSON.stringify({
+      ...data
+    })
+  })
+    .then( response => response.json() )
+    .catch( error => error );
+}

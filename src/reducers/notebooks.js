@@ -36,9 +36,15 @@ const byId = (state = {}, action) => {
     case types.FETCH_NOTEBOOKS_SUCCESS: {
       const newState = {}
       action.payload.forEach(element => {
-        const { id } = element;
-        newState[id] = {...element, confirmed: true};
+        const { id, nombre, color, owner } = element;
+        newState[id] = {
+          id,
+          name: nombre,
+          color,
+          confirmed: true,
+        };
       });
+      console.log(newState);
       return newState
     }
     //REMOVE  A NOTEBOOK SUCCEDED
@@ -112,6 +118,12 @@ const order = (state = [], action) => {
     }
   }
 }
+
+//selectors
+export const getNotebook = (state, id) => state.byId[id];
+export const getNotebooks = (state) => state.order.map(
+    id => getNotebook(state, id)
+);
 
 const notebookList = combineReducers({byId, order});
 export default notebookList;

@@ -29,6 +29,8 @@ export function* fetchLogIn(action) {
     const user = yield call(postLogin, 'http://127.0.0.1:8000/auth-jwt/', username, password);
     console.log(user);
     yield put(actions.logInSuccess(user.token, user.userid, user.username));
+    yield put(actions.notebooksRequest());
+
 }
 
 export function* fetchLogOut(action) {

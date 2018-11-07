@@ -3,7 +3,7 @@
     flex-direction: column;
     background: rgb(39, 39, 39);
     width: 15%;
-    min-width: 12rem;
+    min-width: 17rem;
     padding:  3rem 0rem ;
 }
 
@@ -18,7 +18,7 @@
     padding:  0rem;
     margin: 2rem 0rem 0rem 0px;
 	float: left;
-	height: 50rem;
+	height: 22rem;
 	width: 100%;
 	overflow-y: scroll;
 	margin-bottom: 25px;
