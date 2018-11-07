@@ -2,15 +2,12 @@ import React from 'react';
 
 import './note-list-item.css';
 
-const NoteListItem = ({
-    title,
-    color,
-}) => (
+
+const NoteListItem = ({ icon = "far fa-file-alt", title }) => (
     <li className="itemNoteContainer">
-        <a className="itemNote">
-            <i className={`icon far fa-file-alt`}></i>
-            <p className="title"> { title } </p>
-            <div className="color" style={{background: color}}> </div>
+        <a className="item">
+            <i className={`icon ${icon}`}></i>
+            <p> {title} </p>
         </a>
     </li>
 );

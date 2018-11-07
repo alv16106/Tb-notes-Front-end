@@ -16,15 +16,13 @@ export const notebooksRequestSuccess = (notebooks) => ({
 export const addNotebookRequest = (
   id,
   name,
-  color,
-  owner
+  color
 ) => ({
   type: types.ADD_NOTEBOOK_REQUESTED,
   payload: {
     id,
     name,
-    color,
-    owner
+    color
   }
 })
 
