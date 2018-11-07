@@ -36,10 +36,10 @@ const byId = (state = {}, action) => {
     case types.FETCH_NOTEBOOKS_SUCCESS: {
       const newState = {}
       action.payload.forEach(element => {
-        const { id, nombre, color, owner } = element;
+        const { id, name, color } = element;
         newState[id] = {
           id,
-          name: nombre,
+          name,
           color,
           confirmed: true,
         };

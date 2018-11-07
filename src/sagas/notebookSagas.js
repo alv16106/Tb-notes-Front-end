@@ -21,7 +21,7 @@ export const get = (url, token) => {
 export function* fetchNotebooks(action) {
   try {
     const { token, uid } = yield select(selectors.getUser);
-    const Notebooks = yield call(get, `${BASE_API_URL}/usuario/${uid}/all-notebooks/`, token);
+    const Notebooks = yield call(get, `${BASE_API_URL}/user/${uid}/all-notebooks/`, token);
     yield put(actions.notebooksRequestSuccess(Notebooks));
   }
   catch (e) { 
@@ -34,11 +34,11 @@ export function* addNotebook(action) {
     const { id, name, color } = action.payload;
     const { token, uid } = yield select(selectors.getUser);
     const data = {
-      nombre: name,
-      color: color.replace('#', ''),
+      name,
+      color,
       owner: uid,
     }
-    const added = yield call(post, `${BASE_API_URL}/cuaderno/`, token, data );
+    const added = yield call(post, `${BASE_API_URL}/notebook/`, token, data );
     console.log(added);
     yield put(actions.addNotebookSuccess(id, added.id));
  } catch (e) { 
