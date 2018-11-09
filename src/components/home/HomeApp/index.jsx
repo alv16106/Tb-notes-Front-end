@@ -19,7 +19,9 @@ class HomeApp extends React.Component {
     }
 
     componentWillMount() {
-        this.login();
+        //this.login();
+        console.log("vamo a cargar");
+        
     }
 
     componentDidMount() {
