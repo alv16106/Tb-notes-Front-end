@@ -22,9 +22,16 @@ const SideMenu = ({
         </ul>
 
         <ul className="sideMenu folders scroll" id="style-1"> 
-            { notebooks.map(
+            { notebooks.length > 0 ? notebooks.map(
                 notebook => <MenuItem key={notebook.id} name={notebook.name} color={notebook.color} />
-            ) }
+            ) :
+                <div className="loading">
+                    <div class="spinner">
+                        <div class="double-bounce1"></div>
+                        <div class="double-bounce2"></div>
+                    </div>
+                </div>
+            }
         </ul>
         <div onClick={()=>(
             notebookFormShowing?hideNotebookForm():showNotebookForm()

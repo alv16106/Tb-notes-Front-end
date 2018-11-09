@@ -10,7 +10,7 @@ const SideMenuItem = ({
     const colorString = (color.charAt(0) === '#' || color.charAt(0) === 'r') ? color : `#${color}`;
     return (
         <li className="itemContainer">
-            <a className="itemNote">
+            <a className="item">
                 <i className={`icon ${icon}`}></i>
                 <p> { name } </p>
                 <div className="color" style={{background: `${colorString}`}}> </div>
