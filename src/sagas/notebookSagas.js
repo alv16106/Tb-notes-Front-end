@@ -1,7 +1,7 @@
 import { call, put, select } from 'redux-saga/effects'
 import * as types from '../types'
 import { BASE_API_URL } from '../constants'
-import { post } from './apiInterface';
+import { post, change } from './apiInterface';
 
 import reducers, * as selectors from '../reducers';
 import * as actions from '../actions';
@@ -44,6 +44,17 @@ export function* addNotebook(action) {
  } catch (e) { 
     //yield put({type: types.ADD_NOTEBOOK_FAILURE, payload: { e, id: action.payload.id }});
  }
+}
+
+export function* deleteNotebook(action) {
+  const { id } = action.payload;
+  const { token } = yield select(selectors.getUser);
+  try {
+    const deleted = yield call(change, `${BASE_API_URL}/notebook/${id}/`, token, 'DELETE');
+    yield put(actions.removeNotebookSuccess(id));
+  } catch (e) { 
+    //yield put({type: types.REMOVE_FRIEND_FAILURE, payload: e});
+  }
 }
 
 /*

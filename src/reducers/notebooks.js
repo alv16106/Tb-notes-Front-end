@@ -104,7 +104,7 @@ const order = (state = [], action) => {
     }
 
     case types.REMOVE_NOTEBOOK_SUCCESS: {
-      const id = action.payload;
+      const { id } = action.payload;
       const index = state.indexOf(id)
       const new_state = [
         ...state.slice(0, index),

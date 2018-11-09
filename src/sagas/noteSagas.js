@@ -1,22 +1,29 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put, select } from 'redux-saga/effects'
 import * as types from '../types'
 import { BASE_API_URL } from '../constants'
 import { get, change } from './apiInterface';
+
+import reducers, * as selectors from '../reducers';
+import * as actions from '../actions';
 
 /* TODO:
   -API interface completa (falta API completa para eso)
    */
 
 export function* fetchNotasFromNotebook(action) {
+  const { token } = yield select(selectors.getUser);
+  const { id } = action.payload;
   try {
-    const notas = yield call(get, `${BASE_API_URL}/cuaderno/${action.payload.id}/all-notes/`);
-    yield put({ type: types.FETCH_NOTES_SUCCESS, payload: notas });
+    const notes = yield call(get, `${BASE_API_URL}/notebook/${id}/all-notes/`, token);
+    const n = notes === undefined ? [] : notes;
+    console.log(n);
+    yield put(actions.notesRequestSuccess(n));
   }
   catch (e) { 
-    yield put({type: types.FETCH_NOTES_FAILTURE, payload: e});
+    //yield put({type: types.FETCH_NOTES_FAILTURE, payload: e});
   }
 }
-
+/*
 export function* fetchNota(action) {
   try {
     const nota = yield call(get, `${BASE_API_URL}/nota/${action.payload.id}/`);
@@ -61,4 +68,4 @@ export function* shareNota(action) {
  } catch (e) { 
    yield put({type: types.SHARE_NOTE_FAILTURE, payload: e});
  }
-}
+}*/

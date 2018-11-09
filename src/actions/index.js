@@ -105,6 +105,16 @@ export const hideNotebookForm = () => ({
     type: types.HIDE_NOTEBOOK_FORM,
 })
 
+export const setCurrentNotebook = (id) => ({
+    type: types.CURRENT_NOTEBOOK_SETTED,
+    payload: { id }
+})
+
+export const setCurrentNote = (id) => ({
+    type: types.CURRENT_NOTE_SETTED,
+    payload: { id }
+})
+
 
 export const notesRequest = noteActions.notesRequest;
 export const notesRequestSuccess = noteActions.notesRequestSuccess;

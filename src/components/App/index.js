@@ -10,13 +10,12 @@ import HomeApp from '../home/HomeApp';
 import LoginApp from '../login/LoginApp';
 import './app.css'
 import NavBar from '../NavBar';
-import ProtectedRoute from '../ProtectedRoute';
 import SignUpApp from '../signUp/signUpApp';
 
 const userIsAuthenticated = connectedRouterRedirect({
  redirectPath: routes.SIGN_IN,
  authenticatedSelector: state => {
-   console.log(state.user.token == "", "EL TOKEN ES");
+   console.log(state.user.token === "", "EL TOKEN ES");
    return state.user.token !== "";
   },
  // A nice display name for this check
