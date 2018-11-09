@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import LogInForm from '../LoginForm';
+import SignUpForm from '../signUpForm';
 import * as actions from '../../../actions'
 import { connect } from "react-redux";
 import { compose } from 'recompose';
@@ -11,18 +11,18 @@ import {
 import * as routes from '../../../constants/routes'
 import { getUser } from '../../../reducers'
 
-class LoginApp extends Component {
+class SignUpApp extends Component {
   render() {
-    const { history, login, auth } = this.props
+    const { login, auth } = this.props
     console.log(auth);
     
     return (
       !auth ?
       <div className = "container">
         <div className="row">
-          <h1>Sign In</h1>
+          <h1>Sign Up</h1>
         </div>
-        <LogInForm
+        <SignUpForm
           onSubmit={values => login(values)}
         />
       </div>:
@@ -43,8 +43,8 @@ export default compose(
       }
     })
   )
-)(LoginApp)
+)(SignUpApp)
 
 export {
-  LogInForm,
+  SignUpForm,
 };

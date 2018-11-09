@@ -14,16 +14,15 @@ const Navigation = ({ authUser }) =>
 
 const NavigationAuth = () =>
   <ul id="nav-mobile" className="right">
-    <li><NavLink to={routes.LANDING} activeClassName="active">Inicio</NavLink></li>
-    <li><NavLink to={routes.HOME} activeClassName="active">Home</NavLink ></li>
+    <li><NavLink to={routes.LANDING} activeClassName="active">Home</NavLink></li>
     <li><NavLink to={routes.ACCOUNT} activeClassName="active">Cuenta</NavLink></li>
     &nbsp;
   </ul>
 
 const NavigationNonAuth = () =>
   <ul id="nav-mobile" className="right">
-    <li><NavLink to={routes.SIGN_UP} activeClassName="active">Inicio</NavLink></li>
     <li><NavLink to={routes.SIGN_IN} activeClassName="active">Ingresar</NavLink></li>
+    <li><NavLink to={routes.SIGN_UP} activeClassName="active">Sign Up</NavLink></li>
   </ul>
 
 const mapStateToProps = (state) => ({
