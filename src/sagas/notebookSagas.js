@@ -38,6 +38,7 @@ export function* addNotebook(action) {
       color,
       owner: uid,
     }
+    console.log(data);
     const added = yield call(post, `${BASE_API_URL}/notebook/`, token, data );
     console.log(added);
     yield put(actions.addNotebookSuccess(id, added.id));
