@@ -39,3 +39,19 @@ export const post = (url, token, data) => {
     .then( response => response.json() )
     .catch( error => error );
 }
+
+export const createUser = (url, data) => {
+  console.log(data, 'este usuario se quiere meter');
+  
+  return fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      ...data
+    })
+  })
+    .then( response => response.json() )
+    .catch( error => error );
+}

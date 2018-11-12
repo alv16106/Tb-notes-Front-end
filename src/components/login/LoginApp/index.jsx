@@ -13,7 +13,7 @@ import { getUser } from '../../../reducers'
 
 class LoginApp extends Component {
   render() {
-    const { history, login, auth } = this.props
+    const { login, auth } = this.props
     console.log(auth);
     
     return (

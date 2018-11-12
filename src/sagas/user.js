@@ -1,9 +1,6 @@
-import { call, put, select } from 'redux-saga/effects'
-import * as types from '../types'
+import { call, put } from 'redux-saga/effects'
 import { BASE_API_URL } from '../constants'
-import { get, change } from './apiInterface';
-
-import reducers, * as selectors from '../reducers';
+import { createUser } from './apiInterface';
 import * as actions from '../actions';
 
 const postLogin = (url, username, password) => {
@@ -36,3 +33,9 @@ export function* fetchLogIn(action) {
 export function* fetchLogOut(action) {
     yield put(actions.logoutSuccess());
 } 
+
+export function* postNewUser(action){
+    const { username, password, email } = action.payload;
+    const newUser = yield call(createUser, `${BASE_API_URL}/user/`, {username, password, email});
+    yield put(actions.signUpSuccess())
+}

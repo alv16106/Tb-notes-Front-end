@@ -3,6 +3,25 @@ import * as noteActions from './note';
 import * as notebookActions from './notebook';
 
 //General acions
+export const signUpRequest = (
+    username,
+    password,
+    email
+) => ({
+    type: types.USER_CREATION_REQUESTED,
+    payload: {
+        username,
+        password,
+        email
+    }
+})
+
+export const signUpSuccess = (
+) => ({
+    type: types.USER_CREATION_SUCCESS,
+    payload: {}
+})
+
 export const logInRequest = (
     username,
     password,
