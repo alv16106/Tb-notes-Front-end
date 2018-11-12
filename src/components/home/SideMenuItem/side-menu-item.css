@@ -6,16 +6,21 @@
     cursor: pointer;
     user-select: none;
     box-sizing: border-box;
-    padding: 0rem 0rem 0.10rem 1rem;
+    padding: 0rem;
 }
 
 .item {
+    padding: 0rem 0rem 0rem 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    width: 100%;
+    justify-content: space-between;
     height: 3rem;
+}
+
+.item.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: 0.25s;
 }
 
 a.item:hover {
@@ -26,4 +31,17 @@ a.item:hover {
 
 .icon {
     padding: 0rem;
+}
+
+.color {
+    color: rgba(255, 255, 255, 0);
+}
+
+.color:hover {
+    color: white;
+    transition: 0.25s;
+}
+
+.remove {
+    margin: auto;
 }

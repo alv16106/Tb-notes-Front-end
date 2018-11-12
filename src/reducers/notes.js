@@ -128,4 +128,10 @@ const order = (state = [], action) => {
     }
 }
 
+//selectors
+export const getNote = (state, id) => state.byId[id];
+export const getNotes= (state) => state.order.map(
+    id => getNote(state, id)
+);
+
 export default combineReducers({ byId, order });

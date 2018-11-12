@@ -12,19 +12,34 @@ const SideMenu = ({
     notebooks,
     showNotebookForm,
     hideNotebookForm,
-    notebookFormShowing
+    notebookFormShowing,
+    selectNotebook,
 }) => (
 
     <div className="sideMenu">
         <ul className="menuList">
-            <MenuItem icon="far fa-sticky-note" name="All notes" />
-            <MenuItem icon="far fa-trash-alt" name="Trash" />
+            <MenuItem icon="far fa-sticky-note" name="All notes" deletable={false} />
+            <MenuItem icon="far fa-trash-alt" name="Trash" deletable={false} />
         </ul>
 
         <ul className="sideMenu folders scroll" id="style-1"> 
-            { notebooks.map(
-                notebook => <MenuItem key={notebook.id} name={notebook.name} color={notebook.color} />
-            ) }
+            { notebooks.length > 0 ? notebooks.map(
+                notebook => <MenuItem 
+                    id={notebook.id}  
+                    key={notebook.id} 
+                    name={notebook.name} 
+                    color={notebook.color} 
+                    select={selectNotebook===notebook.id}
+                    active={notebook.confirmed} />
+                
+            ) :
+                <div className="loading">
+                    <div class="spinner">
+                        <div class="double-bounce1"></div>
+                        <div class="double-bounce2"></div>
+                    </div>
+                </div>
+            }
         </ul>
         <div onClick={()=>(
             notebookFormShowing?hideNotebookForm():showNotebookForm()
@@ -42,6 +57,7 @@ export default connect(
     state => ({
         notebooks: selectors.getNotebooks(state),
         notebookFormShowing: state.notebookFormShowing,
+        selectNotebook: state.currentNotebook,
     }),
     dispatch => ({
         showNotebookForm: () => {

@@ -1,19 +1,20 @@
 
 
 //hace un cambio en la base de datos, ya sea borrar, cambiar o 
-export const change = (url, method, body) => fetch(url, {
+export const change = (url, token, method, body) => fetch(url, {
   method: method,
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
+    'Authorization': `JWT ${token}`
   },
   body: body ? JSON.stringify(body) : {}
 })
-  .then(response => method != 'DELETE' ? response.json() : response);
+  .then(response => method !== 'DELETE' ? response.json() : response);
 
 
 
-export const get = (url, token) => {
+export const get = (url, token) => 
   fetch(url, {
     method: 'GET',
     headers: {
@@ -23,7 +24,7 @@ export const get = (url, token) => {
   })
     .then( response => response.json() )
     .catch( error => error );
-}
+
 
 export const post = (url, token, data) => {
   return fetch(url, {

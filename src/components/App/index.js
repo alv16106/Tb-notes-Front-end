@@ -10,30 +10,30 @@ import HomeApp from '../home/HomeApp';
 import LoginApp from '../login/LoginApp';
 import './app.css'
 import NavBar from '../NavBar';
-import ProtectedRoute from '../ProtectedRoute';
 import SignUpApp from '../signUp/signUpApp';
+import NoteApp from '../../components/NoteApp/NoteForm';
 
 const userIsAuthenticated = connectedRouterRedirect({
- redirectPath: routes.SIGN_IN,
- authenticatedSelector: state => {
-   console.log(state.user.token == "", "EL TOKEN ES");
-   return state.user.token !== "";
+  redirectPath: routes.SIGN_IN,
+  authenticatedSelector: state => {
+    console.log(state.user.token === "", "EL TOKEN ES");
+    return state.user.token !== "";
   },
- // A nice display name for this check
- wrapperDisplayName: 'UserIsAuthenticated'
+  // A nice display name for this check
+  wrapperDisplayName: 'UserIsAuthenticated'
 })
 
 const App = () =>
   <BrowserRouter>
     <div className="app">
       <NavBar></NavBar>
-        <div>
+      <div className="content">
         <Route exact path={routes.LANDING} component={userIsAuthenticated(HomeApp)} />
         <Route exact path={routes.HOME} component={userIsAuthenticated(HomeApp)} />
+        <Route exact path={routes.NOTE} component={NoteApp} />
         <Route exact path={routes.SIGN_IN} component={LoginApp} />
         <Route exact path={routes.SIGN_UP} component={SignUpApp} />
       </div>
-      <hr/>
     </div>
   </BrowserRouter>
 

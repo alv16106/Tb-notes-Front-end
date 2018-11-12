@@ -37,10 +37,10 @@ export const addNotebookSuccess = (
   }
 })
 
-export const addNotebookFailture = (
+export const addNotebookFailure = (
   id
 ) => ({
-  type: types.REMOVE_NOTEBOOK_SUCCESS,
+  type: types.ADD_NOTE_FAILURE,
   payload: id
 })
 
@@ -51,14 +51,14 @@ export const removeNotebookRequest = (
   id,
 ) => ({
   type: types.REMOVE_NOTEBOOK_REQUESTED,
-  payload: id
+  payload: { id }
 });
 
 export const removeNotebookSuccess = (
   id
 ) => ({
   type: types.REMOVE_NOTEBOOK_SUCCESS,
-  payload: id
+  payload: { id }
 })
 
 //UPdate
