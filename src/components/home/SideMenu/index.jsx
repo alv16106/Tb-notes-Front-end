@@ -34,7 +34,7 @@ const SideMenu = ({
                 
             ) :
                 <div className="loading">
-                    <div class="spinner">
+                    <div className="spinner">
                         <div class="double-bounce1"></div>
                         <div class="double-bounce2"></div>
                     </div>
