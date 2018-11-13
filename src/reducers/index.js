@@ -7,17 +7,6 @@ import notes, * as fromNotes from './notes';
 import notebooks, * as fromNotebooks from './notebooks';
 import user, * as fromUser from './user';
 
-//selectors
-// user y friends
-export const getUser = (state) => fromUser.getUser(state.user);
-export const getFriend = (state, id) => fromUser.getFriend(state.user, id);
-export const getFriends = (state) => fromUser.getFriends(state.user);
-// notebooks
-export const getNotebook = (state, id)=> fromNotebooks.getNotebook(state.notebook, id);
-export const getNotebooks = (state) => fromNotebooks.getNotebooks(state.notebooks);
-// notes
-export const getNote = (state, id)=> fromNotes.getNote(state.notes, id);
-export const getNotes = (state) => fromNotes.getNotes(state.notes);
 
 // notebook form
 const notebookFormShowing = (state = false, action) => {
@@ -53,11 +42,40 @@ const currentNote = (state = -1, action) => {
             const { id } = action.payload;
             return id;
         }
+
         default: {
             return state;
         }
     }
 }
+
+//selectors
+// user y friends
+export const getUser = (state) => fromUser.getUser(state.user);
+export const getFriend = (state, id) => fromUser.getFriend(state.user, id);
+export const getFriends = (state) => fromUser.getFriends(state.user);
+// notebooks
+export const getNotebook = (state, id)=> fromNotebooks.getNotebook(state.notebook, id);
+export const getNotebooks = (state) => fromNotebooks.getNotebooks(state.notebooks);
+// notes
+export const getNote = (state, id)=> fromNotes.getNote(state.notes, id);
+export const getNotes = (state) => fromNotes.getNotes(state.notes);
+// currents 
+export const getCurrentNote = (state) => state.currentNote;
+export const getCurrentNotebook = (state) => state.currentNotebook; 
+export const getCurrentNoteFull = (state) => {
+    if (getCurrentNote(state) !== undefined || getCurrentNote(state) !== -1){
+        const note = getNote(state, getCurrentNote(state));
+        if (note !== undefined) {
+            return note.body;
+        }
+    } 
+
+    return "";
+    
+}
+
+
 
 export default combineReducers({
     user,

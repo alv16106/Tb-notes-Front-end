@@ -4,7 +4,7 @@
     background: rgb(39, 39, 39);
     width: 15%;
     min-width: 17rem;
-    padding:  3rem 0rem ;
+    padding:  2rem 0rem 0.5rem;
 }
 
 .menuList {
@@ -14,14 +14,14 @@
     width: 100%;
 }
 
-.sideMenu.folders {
-    padding:  0rem;
-    margin: 2rem 0rem 0rem 0px;
-	float: left;
-	height: 22rem;
-	width: 100%;
-	overflow-y: scroll;
-	margin-bottom: 25px;
+.menuList.folders {
+  padding:  0rem;
+  margin: 2rem 0rem 0rem 0px;
+  float: left;
+  flex: 1;
+  width: 100%;
+  overflow-y: scroll;
+  margin-bottom: 25px;
 }
 
 

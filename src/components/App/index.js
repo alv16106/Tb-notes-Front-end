@@ -28,11 +28,11 @@ const App = () =>
     <div className="app">
       <NavBar></NavBar>
       <div className="content">
-        <Route exact path={routes.LANDING} component={userIsAuthenticated(HomeApp)} />
-        <Route exact path={routes.HOME} component={userIsAuthenticated(HomeApp)} />
-        <Route exact path={routes.NOTE} component={NoteApp} />
-        <Route exact path={routes.SIGN_IN} component={LoginApp} />
-        <Route exact path={routes.SIGN_UP} component={SignUpApp} />
+        <Route exact path={routes.LANDING} component={ userIsAuthenticated(HomeApp) } />
+        <Route exact path={routes.HOME} component={ userIsAuthenticated(HomeApp) } />
+        <Route exact path={routes.NOTE} component={ userIsAuthenticated(NoteApp) } />
+        <Route exact path={routes.SIGN_IN} component={ LoginApp } />
+        <Route exact path={routes.SIGN_UP} component={ SignUpApp } />
       </div>
     </div>
   </BrowserRouter>

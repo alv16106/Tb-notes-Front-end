@@ -44,7 +44,7 @@ const SideMenu = ({
         <div onClick={()=>(
             notebookFormShowing?hideNotebookForm():showNotebookForm()
         )}>
-            <MenuItem icon="fas fa-folder-plus" name="Add" />
+            <MenuItem   icon="fas fa-folder-plus" name="Add" />
         </div>
 
     </div>

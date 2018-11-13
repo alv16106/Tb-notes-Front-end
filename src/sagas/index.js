@@ -3,7 +3,7 @@ import { takeLatest } from 'redux-saga/effects';
 import * as types from '../types';
 import { fetchLogIn, fetchLogOut, postNewUser } from './user'; 
 import { fetchNotebooks, addNotebook, deleteNotebook } from './notebookSagas';
-import { fetchNotasFromNotebook } from './noteSagas';
+import { fetchNotasFromNotebook, addNote } from './noteSagas';
 
 function* mySaga() {
     yield takeLatest(types.USER_LOG_IN_REQUESTED, fetchLogIn);      // log in
@@ -13,6 +13,7 @@ function* mySaga() {
     yield takeLatest(types.USER_CREATION_REQUESTED, postNewUser)
     yield takeLatest(types.CURRENT_NOTEBOOK_SETTED, fetchNotasFromNotebook); // load notes when notebook selected
     yield takeLatest(types.REMOVE_NOTEBOOK_REQUESTED, deleteNotebook); // remover a notebook
+    yield takeLatest(types.ADD_NOTE_REQUESTED, addNote); // post new note
 }
 
 export default mySaga;

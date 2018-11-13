@@ -135,8 +135,8 @@ export const setCurrentNote = (id) => ({
 })
 
 
-export const notesRequest = noteActions.notesRequest;
-export const notesRequestSuccess = noteActions.notesRequestSuccess;
+export const notesFetchRequest = noteActions.notesFetchRequest;
+export const notesFetchSuccess = noteActions.notesFetchSuccess;
 export const noteRequest = noteActions.noteRequest;
 export const noteSuccess = noteActions.noteSuccess;
 

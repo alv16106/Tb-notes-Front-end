@@ -3,13 +3,13 @@ import * as types from '../types';
 // Notes related actions
 // NOTES
 //fetch
-export const notesRequest = () => ({
+export const notesFetchRequest = () => ({
   type: types.FETCH_NOTES_REQUESTED,
 })
 
-export const notesRequestSuccess = ( notes ) => ({
+export const notesFetchSuccess = ( notes ) => ({
   type: types.FETCH_NOTES_SUCCESS,
-  payload: { notes }
+  payload: notes 
 })
 
 // NOTE

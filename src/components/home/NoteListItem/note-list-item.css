@@ -8,6 +8,19 @@
     border-width: 1.25px 0px;
     padding: 0rem 0rem 0.10rem 1rem;
     box-sizing: border-box;
+    transition: 0.25s;
+}
+
+.itemNoteContainer:hover {
+    background: #cacaca;
+    color: white;
+    font-weight: bold;
+}
+
+.itemNoteContainer.selected {
+    background: #cacaca;
+    color: white;
+    font-weight: bold;
 }
 
 .itemNote {
