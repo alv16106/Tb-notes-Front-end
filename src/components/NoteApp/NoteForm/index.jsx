@@ -38,7 +38,9 @@ const NoteForm = ({
       </form>
 
       <div className="preview">
-        <ReactMarkdown source={`# ${title}\n\n${body}`} escapeHtml={false}/>
+        <ReactMarkdown 
+          source={`# ${title ? title: ''}\n-------------\n\n${body ? body: ''}`} 
+          escapeHtml={false} />
       </div>
     </div>
 

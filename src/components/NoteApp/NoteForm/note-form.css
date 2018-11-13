@@ -16,7 +16,7 @@
     box-sizing: border-box;
     flex-direction: column;
     width: 50%;
-    background: purple;
+    background: rgb(56, 56, 56);
     padding: 0.5rem 1rem;
 }
 
@@ -63,7 +63,78 @@
 .note-form .send-note button i { 
 }
 
+blockquote {
+    color: #666;
+    margin: 0;
+    padding-left: 3em;
+    border-left: 0.5em #eee solid;
+}
+
+pre {
+    border: 1px solid #ccc;
+}
+
+code, kbd, pre, samp {
+    width: 100%;
+    font-family: monospace,monospace;
+    box-sizing: border-box;
+    padding: 0.2rem;
+    font-size: 1em;
+}
+
+.hljs-keyword, .hljs-selector-tag, .hljs-subst {
+    color: #333;
+    font-weight: bold;
+}
+
+.hljs-built_in, .hljs-builtin-name {
+    color: #0086b3;
+}
+
+.hljs-string, .hljs-doctag {
+    color: #d14;
+}
+
+.hljs-tag, .hljs-name, .hljs-attribute {
+    color: #000080;
+    font-weight: normal;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+    border-top: 1px solid #c6cbd1;
+    background: #fff;
+}
+
+th, td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+
+
 .preview {
     width: 50%;
-    background: red;
+    background: white;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    overflow-y: scroll;
 }
