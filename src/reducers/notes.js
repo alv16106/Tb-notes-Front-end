@@ -122,10 +122,13 @@ const order = (state = [], action) => {
         // REMOVED
         case types.REMOVE_NOTE_SUCCESS: {
             const { id } = action.payload;
-            const new_state = state;
-            delete new_state[id];
+            const index = state.indexOf(id)
+            const new_state = [
+              ...state.slice(0, index),
+              ...state.slice(index+1, state.length)
+            ];
             return new_state;
-        }
+          }
         // UPDATED
         case types.UPDATE_NOTE_SUCCESS: {
             const { old_id, id } = action.payload;

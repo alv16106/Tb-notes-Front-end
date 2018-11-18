@@ -16,7 +16,6 @@ import NoteApp from '../../components/NoteApp/NoteForm';
 const userIsAuthenticated = connectedRouterRedirect({
   redirectPath: routes.SIGN_IN,
   authenticatedSelector: state => {
-    console.log(state.user.token === "", "EL TOKEN ES");
     return state.user.token !== "";
   },
   // A nice display name for this check

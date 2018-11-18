@@ -49,6 +49,17 @@ export function* addNote(action) {
   }
 }
 
+export function* deleteNote(action) {
+  const { token } = yield select(selectors.getUser);
+  const { id } = action.payload;
+  try {
+    const deleted = yield call(change, `${BASE_API_URL}/note/${id}/`, token, 'DELETE', {});
+    yield put(actions.removeNoteSuccess(id));
+  } catch (e) { 
+    //yield put({type: types.REMOVE_FRIEND_FAILTURE, payload: e});
+  }
+}
+
 /*
 export function* fetchNota(action) {
   try {
@@ -68,15 +79,7 @@ export function* updateNota(action) {
   }
 }
 
-export function* deleteNota(action) {
-  try {
-    const deleted = yield call(change, `${BASE_API_URL}/nota/${action.payload.id}/`, 'DELETE');
-    yield put({ type: types.REMOVE_NOTE_SUCCESS, payload: {message: ''} });
-  } catch (e) { 
-    yield put({type: types.REMOVE_FRIEND_FAILTURE, payload: e});
 
-  }
-}
 
 
 

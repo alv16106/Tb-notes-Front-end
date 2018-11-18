@@ -79,7 +79,7 @@ export const removeNoteRequest = (
 export const removeNoteSuccess = (
   id,
 ) => ({
-  type: types.ADD_NOTE_SUCCESS,
+  type: types.REMOVE_NOTE_SUCCESS,
   payload: {
     id,
   }
