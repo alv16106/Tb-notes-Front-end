@@ -8,18 +8,23 @@ import * as selectors from '../../../reducers';
 import './current-note.css';
 
 const CurrentNote = ({
+    title,
     body
 }) => (
     <div className="currentNote">
         <ReactMarkdown
-            source={`${body ? body : ''}`}
+            source={`# ${title ? title: ''}\n-------------\n\n${body ? body: ''}`}
             escapeHtml={false} />
     </div>
 );
 
 export default connect(
-    state => ({
-        body: selectors.getCurrentNoteFull(state),
-    }),
+    state => {
+        const { title, body } = selectors.getCurrentNoteFull(state);
+        return {
+            title,
+            body,
+        }
+    },
     undefined,
 )(CurrentNote);

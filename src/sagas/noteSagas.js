@@ -24,6 +24,14 @@ export function* fetchNotasFromNotebook(action) {
   }
 }
 
+export function* showLoadingNotes(action) {
+  yield put(actions.loadingNotes());
+}
+
+export function* hideLoadingNotes(action) {
+  yield put(actions.loadingNotes());
+}
+
 export function* addNote(action) {
   const { token } = yield select(selectors.getUser);
   const { id, title, body } = action.payload; 

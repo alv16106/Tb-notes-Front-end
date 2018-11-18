@@ -93,13 +93,26 @@ const order = (state = [], action) => {
     }
 }
 
+const isLoading = (state = false, action) => {
+    switch (action.type) {
+        case types.TOGGLED_LOADING_FRIENDS: {
+            return !state;
+        }
+        default: {
+            return state;
+        }
+    }
+}
+
 //selectors
 export const getFriend = (state, id) => state.byId[id];
 export const getFriends = (state) => state.order.map(
     id => getFriend(state, id)
 );
+export const itsLoading = (state) => state.isLoading;
 
 export default combineReducers({
     byId,
-    order
+    order,
+    isLoading,
 })

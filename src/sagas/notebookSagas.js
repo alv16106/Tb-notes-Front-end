@@ -29,6 +29,14 @@ export function* fetchNotebooks(action) {
   }
 }
 
+export function* showLoadingNotebooks(action) {
+  yield put(actions.loadingNotebooks());
+}
+
+export function* hideLoadingNotebooks(action) {
+  yield put(actions.loadingNotebooks());
+}
+
 export function* addNotebook(action) {
   try {
     const { id, name, color } = action.payload;

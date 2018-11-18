@@ -74,6 +74,10 @@ export const addFriendFailure = (
     }
 });
 
+export const loadingFriends = () => ({
+    type: types.TOGGLED_LOADING_FRIENDS,
+});
+
 export const addFriendSucces = (
     old_id,
     id,
@@ -137,6 +141,7 @@ export const setCurrentNote = (id) => ({
 
 export const notesFetchRequest = noteActions.notesFetchRequest;
 export const notesFetchSuccess = noteActions.notesFetchSuccess;
+export const loadingNotes = noteActions.loadingNotes;
 export const noteRequest = noteActions.noteRequest;
 export const noteSuccess = noteActions.noteSuccess;
 
@@ -151,6 +156,7 @@ export const updateNoteSuccess = noteActions.updateNoteSuccess;
 
 export const addNotebookRequest = notebookActions.addNotebookRequest;
 export const addNotebookSuccess = notebookActions.addNotebookSuccess;
+export const loadingNotebooks = notebookActions.loadingNotebooks;
 export const removeNotebookRequest = notebookActions.removeNotebookRequest;
 export const removeNotebookSuccess = notebookActions.removeNotebookSuccess;
 export const updateNotebookRequest = notebookActions.updateNotebookRequest;

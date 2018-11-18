@@ -150,10 +150,26 @@ const order = (state = [], action) => {
     }
 }
 
+const isLoading = (state = false, action) => {
+    switch (action.type) {
+        case types.TOGGLED_LOADING_NOTES: {
+            return !state;
+        }
+        default: {
+            return state;
+        }
+    }
+}
+
 //selectors
 export const getNote = (state, id) => state.byId[id];
 export const getNotes = (state) => state.order.map(
     id => getNote(state, id)
 );
+export const itsLoading = (state) => state.isLoading;
 
-export default combineReducers({ byId, order });
+export default combineReducers({ 
+    byId,
+    order,
+    isLoading,
+});

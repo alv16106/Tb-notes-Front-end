@@ -12,6 +12,10 @@ export const notesFetchSuccess = ( notes ) => ({
   payload: notes 
 })
 
+export const loadingNotes = () => ({
+  type: types.TOGGLED_LOADING_NOTES,
+})
+
 // NOTE
 // fetch
 export const noteRequest = ( id ) => ({
