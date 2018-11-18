@@ -119,11 +119,27 @@ const order = (state = [], action) => {
   }
 }
 
+const isLoading = (state = false, action) => {
+  switch (action.type) {
+      case types.TOGGLED_LOADING_NOTEBOOKS: {
+          return !state;
+      }
+      default: {
+          return state;
+      }
+  }
+}
+
 //selectors
 export const getNotebook = (state, id) => state.byId[id];
 export const getNotebooks = (state) => state.order.map(
     id => getNotebook(state, id)
 );
+export const itsLoading = (state) => state.isLoading;
 
-const notebookList = combineReducers({byId, order});
+const notebookList = combineReducers({
+  byId,
+  order,
+  isLoading,
+});
 export default notebookList;

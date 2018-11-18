@@ -12,6 +12,10 @@ export const notebooksRequestSuccess = (notebooks) => ({
   payload: notebooks
 })
 
+export const loadingNotebooks = () => ({
+  type: types.TOGGLED_LOADING_NOTEBOOKS,
+})
+
 //Add one
 export const addNotebookRequest = (
   id,

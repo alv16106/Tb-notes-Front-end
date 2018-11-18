@@ -8,15 +8,31 @@
     border-width: 1.25px 0px;
     padding: 0rem 0rem 0.10rem 1rem;
     box-sizing: border-box;
+    transition: 0.25s;
+}
+
+.itemNoteContainer:hover {
+    background: #cacaca;
+    color: white;
+    font-weight: bold;
+}
+
+.itemNoteContainer.selected {
+    background: #cacaca;
+    color: white;
+    font-weight: bold;
 }
 
 .itemNote {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    width: 100%;
+    justify-content: space-between;
     height: 3rem;
+}
+
+.itemNote.add {
+    justify-content: flex-start;
 }
 
 .itemNoteContainer .itemNote .icon {

@@ -3,21 +3,22 @@ import uuid from 'uuid-v4';
 import { Field, reduxForm, formValueSelector } from 'redux-form'
 import { connect } from 'react-redux';
 import ReactMarkdown from 'react-markdown/with-html';
-import * as selectors from '../../../reducers';
+
 import * as actions from '../../../actions';
 
 import './note-form.css';
+import { dispatch } from 'rxjs/internal/observable/range';
 
 
 const NoteForm = ({
   title,
   body,
-
+  handleSubmit
 }) => (
   <div className="note-content">
   {console.log(title)}
     <div className="note-container">
-      <form className="note-form" autoComplete="off">
+      <form className="note-form" onSubmit={handleSubmit} autoComplete="off">
         <Field
           className="title"
           name="title"
@@ -52,10 +53,11 @@ const selector = formValueSelector('noteForm');
 const form = reduxForm({
   form: 'noteForm', // a unique identifier for this form
   onSubmit(values, dispatch) {
-    dispatch(actions.addNotebookRequest(
+    actions.addNoteRequest()
+    dispatch(actions.addNoteRequest(
       uuid(),
-      values.name,
-      values.color
+      values.title,
+      values.body,
     ));
   },
 })(NoteForm)
@@ -69,5 +71,5 @@ export default connect(
       body,
     })
   },
-  undefined,
+  undefined
 )(form);
