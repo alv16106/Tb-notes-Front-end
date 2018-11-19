@@ -18,7 +18,7 @@ const SideMenuItem = ({
 }) => {
     const colorString = (color.charAt(0) === '#' || color.charAt(0) === 'r') ? color : `#${color}`;
     return (
-        <li className="itemContainer" onClick={!deletable ? ()=>{} : () => selected(active)}>
+        <li className="itemContainer" onClick={() => selected(active)}>
             <a className={`item ${select ? 'active' : ''}`}>
                 <i className={`icon ${icon}`}></i>
                 <p> {name} </p>
@@ -39,6 +39,7 @@ export default connect(
     undefined,
     (dispatch, { id }) => ({
         selected: (active) => {
+            console.log(id, active)
             if (active)
                 dispatch(actions.setCurrentNotebook(id));
         },

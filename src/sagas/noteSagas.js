@@ -25,11 +25,11 @@ export function* fetchNotasFromNotebook(action) {
 }
 
 export function* showLoadingNotes(action) {
-  yield put(actions.loadingNotes());
+  yield put(actions.startLoadingNotes());
 }
 
 export function* hideLoadingNotes(action) {
-  yield put(actions.loadingNotes());
+  yield put(actions.stopLoadingNotes());
 }
 
 export function* addNote(action) {

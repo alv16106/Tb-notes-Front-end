@@ -121,8 +121,11 @@ const order = (state = [], action) => {
 
 const isLoading = (state = false, action) => {
   switch (action.type) {
-      case types.TOGGLED_LOADING_NOTEBOOKS: {
-          return !state;
+      case types.TOGGLED_UP_LOADING_NOTEBOOKS: {
+          return true;
+      }
+      case types.TOGGLED_DOWN_LOADING_NOTEBOOKS: {
+        return false;
       }
       default: {
           return state;

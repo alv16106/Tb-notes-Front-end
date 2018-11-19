@@ -12,8 +12,12 @@ export const notebooksRequestSuccess = (notebooks) => ({
   payload: notebooks
 })
 
-export const loadingNotebooks = () => ({
-  type: types.TOGGLED_LOADING_NOTEBOOKS,
+export const startLoadingNotebooks = () => ({
+  type: types.TOGGLED_UP_LOADING_NOTEBOOKS,
+})
+
+export const stopLoadingNotebooks = () => ({
+  type: types.TOGGLED_DOWN_LOADING_NOTEBOOKS,
 })
 
 //Add one
