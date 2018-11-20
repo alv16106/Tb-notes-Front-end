@@ -3,7 +3,7 @@ import * as types from '../types'
 import { BASE_API_URL } from '../constants'
 import { post, change } from './apiInterface';
 
-import reducers, * as selectors from '../reducers';
+import * as selectors from '../reducers';
 import * as actions from '../actions';
 
 export const get = (url, token) => {
@@ -22,10 +22,11 @@ export function* fetchNotebooks(action) {
   try {
     const { token, uid } = yield select(selectors.getUser);
     const Notebooks = yield call(get, `${BASE_API_URL}/user/${uid}/all-notebooks/`, token);
+    console.log(Notebooks, "notebooks");
     yield put(actions.notebooksRequestSuccess(Notebooks));
   }
   catch (e) { 
-    //yield put({type: types.FETCH_NOTEBOOKS_FAILURE, payload: e});
+    
   }
 }
 

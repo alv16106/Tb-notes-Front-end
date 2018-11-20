@@ -10,6 +10,7 @@ import NotebookForm from '../NotebookForm';
 
 import * as actions from '../../../actions';
 
+
 class HomeApp extends React.Component {
 
     constructor(props) {
@@ -25,7 +26,7 @@ class HomeApp extends React.Component {
     }
 
     componentDidMount() {
-        //this.fetchNotebooks();
+        this.fetchNotebooks();
     }
 
     render() {
@@ -48,8 +49,8 @@ export default connect(
         notebookFormShowing: state.notebookFormShowing,
     }),
     dispatch => ({
-        login: () => {
-            dispatch(actions.logInRequest('javier', 'j66352769'))
+        loadNotebooks: () => {
+            dispatch(actions.notebooksRequest())
         }
     })
 )(HomeApp);
