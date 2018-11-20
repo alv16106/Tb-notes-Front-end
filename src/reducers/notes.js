@@ -22,7 +22,7 @@ const byId = (state = {}, action) => {
             }
         }
         case types.ADD_NOTE_SUCCESS: {
-            const {old_id, id, title, body} = action.payload;
+            const { old_id, id, title, body } = action.payload;
             const new_note = {
                 id,
                 title,
@@ -38,21 +38,21 @@ const byId = (state = {}, action) => {
             }
         }
         case types.ADD_NOTE_FAILURE: {
-          const { id } = action.payload;
-          const new_state = state;
-          delete new_state[id];
-          return new_state; 
+            const { id } = action.payload;
+            const new_state = state;
+            delete new_state[id];
+            return new_state;
         }
         // REMOVED
         case types.REMOVE_NOTE_SUCCESS: {
             const { id } = action.payload;
             const new_state = state;
             delete new_state[id];
-            return new_state; 
+            return new_state;
         }
         // UPDATED
         case types.UPDATE_NOTE_SUCCESS: {
-            const {old_id, id, title, body} = action.payload;
+            const { old_id, id, title, body } = action.payload;
             const new_note = {
                 id,
                 title,
@@ -66,6 +66,20 @@ const byId = (state = {}, action) => {
                     ...new_note,
                 }
             }
+        }
+        // FETCH
+        case types.FETCH_NOTES_SUCCESS: {
+            const newState = {}
+            action.payload.forEach(element => {
+                const { id, title, body } = element;
+                newState[id] = {
+                    id,
+                    title,
+                    body,
+                };
+            });
+            console.log(newState);
+            return newState
         }
         default: {
             return state;
@@ -91,7 +105,7 @@ const order = (state = [], action) => {
             ]
         }
         case types.ADD_NOTE_SUCCESS: {
-            const {old_id, id} = action.payload;
+            const { old_id, id } = action.payload;
             const new_state = state;
             const i = new_state.indexOf(old_id)
             if (i !== -1) {
@@ -108,19 +122,41 @@ const order = (state = [], action) => {
         // REMOVED
         case types.REMOVE_NOTE_SUCCESS: {
             const { id } = action.payload;
-            const new_state = state;
-            delete new_state[id];
-            return new_state; 
-        }
+            const index = state.indexOf(id)
+            const new_state = [
+              ...state.slice(0, index),
+              ...state.slice(index+1, state.length)
+            ];
+            return new_state;
+          }
         // UPDATED
         case types.UPDATE_NOTE_SUCCESS: {
-            const {old_id, id} = action.payload;
+            const { old_id, id } = action.payload;
             const new_state = state;
             const i = new_state.indexOf(old_id)
             if (i !== -1) {
                 new_state[i] = id;
             }
             return new_state;
+        }
+        // FETCH
+        case types.FETCH_NOTES_SUCCESS: {
+            const newState = []
+            action.payload.forEach(element => {
+                newState.push(element.id);
+            });
+            return newState
+        }
+        default: {
+            return state;
+        }
+    }
+}
+
+const isLoading = (state = false, action) => {
+    switch (action.type) {
+        case types.TOGGLED_LOADING_NOTES: {
+            return !state;
         }
         default: {
             return state;
@@ -130,8 +166,13 @@ const order = (state = [], action) => {
 
 //selectors
 export const getNote = (state, id) => state.byId[id];
-export const getNotes= (state) => state.order.map(
+export const getNotes = (state) => state.order.map(
     id => getNote(state, id)
 );
+export const itsLoading = (state) => state.isLoading;
 
-export default combineReducers({ byId, order });
+export default combineReducers({ 
+    byId,
+    order,
+    isLoading,
+});

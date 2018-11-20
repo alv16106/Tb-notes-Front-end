@@ -1,5 +1,8 @@
 .currentNote {
     display: flex;
-    background: black;
+    background: white;
+    padding: 3rem 2rem;
     flex-grow: 1;
+    box-sizing: border-box;
+    flex-direction: column;
 }
