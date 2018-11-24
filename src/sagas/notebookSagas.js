@@ -30,11 +30,11 @@ export function* fetchNotebooks(action) {
 }
 
 export function* showLoadingNotebooks(action) {
-  yield put(actions.loadingNotebooks());
+  yield put(actions.startLoadingNotebooks());
 }
 
 export function* hideLoadingNotebooks(action) {
-  yield put(actions.loadingNotebooks());
+  yield put(actions.stopLoadingNotebooks());
 }
 
 export function* addNotebook(action) {

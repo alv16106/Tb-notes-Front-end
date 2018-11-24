@@ -12,8 +12,12 @@ export const notesFetchSuccess = ( notes ) => ({
   payload: notes 
 })
 
-export const loadingNotes = () => ({
-  type: types.TOGGLED_LOADING_NOTES,
+export const startLoadingNotes = () => ({
+  type: types.TOGGLED_UP_LOADING_NOTES,
+})
+
+export const stopLoadingNotes = () => ({
+  type: types.TOGGLED_DOWN_LOADING_NOTES,
 })
 
 // NOTE

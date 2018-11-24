@@ -21,6 +21,7 @@
   flex: 1;
   width: 100%;
   overflow-y: scroll;
+  overflow-x: hidden !important;
   margin-bottom: 25px;
 }
 

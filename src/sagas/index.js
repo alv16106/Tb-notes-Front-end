@@ -2,8 +2,20 @@ import { takeLatest } from 'redux-saga/effects';
 
 import * as types from '../types';
 import { fetchLogIn, fetchLogOut, postNewUser } from './user'; 
-import { fetchNotebooks, addNotebook, deleteNotebook, showLoadingNotebooks, hideLoadingNotebooks } from './notebookSagas';
-import { fetchNotasFromNotebook, addNote, showLoadingNotes, hideLoadingNotes, deleteNote } from './noteSagas';
+import { 
+    fetchNotebooks,
+    addNotebook,
+    deleteNotebook,
+    showLoadingNotebooks,
+    hideLoadingNotebooks
+} from './notebookSagas';
+import {
+    fetchNotes,
+    fetchNotasFromNotebook,
+    addNote, showLoadingNotes,
+    hideLoadingNotes,
+    deleteNote
+} from './noteSagas';
 
 function* mySaga() {
     // USER
@@ -17,6 +29,7 @@ function* mySaga() {
     yield takeLatest(types.FETCH_NOTEBOOKS_REQUESTED, showLoadingNotebooks); // show load
     yield takeLatest(types.FETCH_NOTEBOOKS_SUCCESS, hideLoadingNotebooks); // hide load on success
     // NOTES
+    yield takeLatest(types.FETCH_NOTES_REQUESTED, fetchNotes); // fetch all notes from user
     yield takeLatest(types.CURRENT_NOTEBOOK_SETTED, fetchNotasFromNotebook); // load notes when notebook selected
     yield takeLatest(types.CURRENT_NOTEBOOK_SETTED, showLoadingNotes); // show loading
     yield takeLatest(types.FETCH_NOTES_SUCCESS, hideLoadingNotes); // hide load on success

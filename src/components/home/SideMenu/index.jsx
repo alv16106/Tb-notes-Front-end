@@ -20,8 +20,20 @@ const SideMenu = ({
 
     <div className="sideMenu">
       <ul className="menuList">
-        <MenuItem icon="far fa-sticky-note" name="All notes" deletable={false} />
-        <MenuItem icon="fas fa-user-friends" name="Friends" deletable={false} />
+        <MenuItem 
+          icon="far fa-sticky-note" 
+          name="All notes"
+          id="all"
+          deletable={false}
+          active={true}
+           />
+        <MenuItem 
+          icon="fas fa-user-friends"
+          name="Friends"
+          id="friends"
+          deletable={false}
+          active={true}
+           />
       </ul>
 
       <ul className="sideMenu folders scroll" id="style-1">
@@ -35,7 +47,6 @@ const SideMenu = ({
                 key={notebook.id}
                 name={notebook.name}
                 color={notebook.color}
-                select={selectNotebook === notebook.id}
                 active={notebook.confirmed} />
 
             )
@@ -45,7 +56,7 @@ const SideMenu = ({
       <div onClick={() => (
         notebookFormShowing ? hideNotebookForm() : showNotebookForm()
       )}>
-        <MenuItem icon="fas fa-folder-plus" name="Add" deletable={false} />
+        <MenuItem icon="fas fa-folder-plus" name="Add" deletable={false} active={false}/>
       </div>
 
     </div>

@@ -10,6 +10,16 @@ import * as actions from '../actions';
   -API interface completa (falta API completa para eso)
    */
 
+export function* fetchNotes(action) {
+  const { uid, token } = yield select(selectors.getUser);
+  try {
+    const notes = yield call(get, `${BASE_API_URL}/user/${uid}/all-notes/`, token);
+    yield put(actions.notesFetchSuccess(notes));
+  } catch (e) {
+    //yield put({ type: types.FETCH_NOTE_FAILTURE, payload: e });
+  }
+}
+
 export function* fetchNotasFromNotebook(action) {
   const { token } = yield select(selectors.getUser);
   const { id } = action.payload;
@@ -25,16 +35,16 @@ export function* fetchNotasFromNotebook(action) {
 }
 
 export function* showLoadingNotes(action) {
-  yield put(actions.loadingNotes());
+  yield put(actions.startLoadingNotes());
 }
 
 export function* hideLoadingNotes(action) {
-  yield put(actions.loadingNotes());
+  yield put(actions.stopLoadingNotes());
 }
 
 export function* addNote(action) {
   const { token } = yield select(selectors.getUser);
-  const { id, title, body } = action.payload; 
+  const { id, title, body } = action.payload;
   const notebookId = yield select(selectors.getCurrentNotebook);
   try {
     const data = {
@@ -55,7 +65,7 @@ export function* deleteNote(action) {
   try {
     const deleted = yield call(change, `${BASE_API_URL}/note/${id}/`, token, 'DELETE', {});
     yield put(actions.removeNoteSuccess(id));
-  } catch (e) { 
+  } catch (e) {
     //yield put({type: types.REMOVE_FRIEND_FAILTURE, payload: e});
   }
 }
