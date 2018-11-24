@@ -138,6 +138,28 @@ export const setCurrentNote = (id) => ({
     payload: { id }
 })
 
+export const addNotification = (
+    id,
+    color,
+    type,
+    text,
+    onDismissClick
+) => ({
+    type: types.ADD_NOTIFICATION,
+    payload: {
+        id,
+        color,
+        type,
+        text,
+        onDismissClick
+    }
+})
+
+export const dismissNotification = (id) = ({
+    type: types.DISMISS_NOTIFICATION,
+    payload: id
+})
+
 
 export const notesFetchRequest = noteActions.notesFetchRequest;
 export const notesFetchSuccess = noteActions.notesFetchSuccess;
