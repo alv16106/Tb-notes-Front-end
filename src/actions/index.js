@@ -54,6 +54,17 @@ export const logoutSuccess = () => ({
     type: types.USER_LOG_OUT_SUCCESS,
 })
 
+export const fetchFriendsRequest = () => ({
+    type: types.FRIENDS_FETCH_REQUESTED,
+})
+
+export const fetchFriendsSucceed = ({ 
+    friends,
+ }) => ({
+    type: types.FRIENDS_FETCH_SUCCESS,
+    payload: { friends },
+})
+
 export const addFriendRequest = (
     id,
     username,

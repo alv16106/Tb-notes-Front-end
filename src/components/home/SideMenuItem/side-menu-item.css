@@ -21,11 +21,10 @@
 .item.active {
     background-color: rgba(255, 255, 255, 0.1);
     transition: 0.25s;
-    transform: scale(1.05);
+    transform: scaleY(1.05);
     -webkit-box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.75);
-    z-index: 1000;
 }
 
 a.item:hover {
@@ -35,11 +34,10 @@ a.item:hover {
 }
 
 a.item:active {
-    transform: scale(1.05);
+    transform: scaleY(1.05);
     -webkit-box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 2px 5px 5px 0px rgba(0,0,0,0.75);
-    z-index: 1000;
 }
 
 .icon {
