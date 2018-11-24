@@ -26,7 +26,7 @@ export function* fetchLogIn(action) {
     const user = yield call(postLogin, `${BASE_API_URL}/auth-jwt/`, username, password);
     console.log(user);
     yield put(actions.logInSuccess(user.token, user.userid, user.username));
-    yield put(actions.notebooksRequest());
+    //yield put(actions.notebooksRequest());
 
 }
 
