@@ -43,7 +43,6 @@ export const post = (url, token, data) => {
 
 export const createUser = (url, data) => {
   console.log(data, 'este usuario se quiere meter');
-  
   return fetch(url, {
     method: 'POST',
     headers: {
@@ -54,9 +53,7 @@ export const createUser = (url, data) => {
     })
   })
     .then( response => {
-      console.log(response);
       return response.json()
       
     } )
-    .catch( error => error );
 }

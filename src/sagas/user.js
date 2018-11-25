@@ -20,6 +20,19 @@ const postLogin = (url, username, password) => {
       .then( response => response.json() )
 }
 
+const refresh = (url, oldJWT) => {
+    return fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+            token: oldJWT,
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => response.json())
+}
+
 export function* fetchLogIn(action) {
     const notificationID = uuid();
     try{
@@ -43,10 +56,35 @@ export function* fetchLogOut(action) {
 } 
 
 export function* postNewUser(action){
-    const notificationID = uuid();
-    const { username, password, email } = action.payload;
-    const newUser = yield call(createUser, `${BASE_API_URL}/user/`, {username, password, email});
-    console.log(newUser);
-    
-    yield put(actions.signUpSuccess())
+    try{
+        const { username, password, email } = action.payload;
+        const newUser = yield call(createUser, `${BASE_API_URL}/user/`, {username, password, email});
+        if (newUser.username === username && newUser.password === password && newUser.email === email) {
+            const notificationID = uuid();
+            yield put(actions.addNotification(notificationID, '#77DD77', 'success', 'Usuario creado satisfactoriamente'));
+            yield put(actions.signUpSuccess())
+        }else{
+            for (const [key, value] of Object.entries(newUser)) {
+                const notificationID = uuid();
+                console.log(key, value);
+                
+                let errors = key + ": \n";
+                value.forEach(error => {
+                    errors = errors + error + "\n"
+                });
+                yield put(actions.addNotification(notificationID, '#FF6961', 'failture', errors));
+            }
+        }
+
+    }catch(e) {
+        console.log(e);
+        const notificationID = uuid();
+        yield put(actions.addNotification(notificationID, '#FF6961', 'failture', 'No se pudo conectar con el servidor'));
+    }
+}
+
+export function* refreshJWT(action){
+    const { oldJWT } = action.payload;
+    const newJWT = yield call(refresh, `${BASE_API_URL}/auth-jwt-refresh/`, oldJWT);
+    yield put(actions.logInSuccess(newJWT.token, newJWT.userid, newJWT.username));
 }

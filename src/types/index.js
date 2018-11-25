@@ -1,4 +1,7 @@
 //USER
+
+//JWT
+export const REFRESH_JWT = 'REFRESH_JWT';
 // on login
 export const USER_LOG_IN_REQUESTED = 'USER_LOG_IN_REQUESTED';
 export const USER_LOG_IN_SUCCESS = 'USER_LOG_IN_SUCCESS';

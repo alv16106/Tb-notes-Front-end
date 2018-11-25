@@ -16,6 +16,15 @@ export const signUpRequest = (
     }
 })
 
+export const refreshJWT = (
+    oldJWT
+) => ({
+    type: types.REFRESH_JWT,
+    payload: {
+        oldJWT
+    }
+})
+
 export const signUpSuccess = (
 ) => ({
     type: types.USER_CREATION_SUCCESS,

@@ -21,7 +21,7 @@ class HomeApp extends React.Component {
 
     componentWillMount() {
         //this.login();
-        console.log("vamo a cargar");
+        
         
     }
 

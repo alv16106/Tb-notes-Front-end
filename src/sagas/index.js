@@ -4,6 +4,7 @@ import * as types from '../types';
 import { fetchLogIn, fetchLogOut, postNewUser } from './user'; 
 import { fetchNotebooks, addNotebook, deleteNotebook, showLoadingNotebooks, hideLoadingNotebooks } from './notebookSagas';
 import { fetchNotasFromNotebook, addNote, showLoadingNotes, hideLoadingNotes, deleteNote } from './noteSagas';
+import { refreshJWT } from './user';
 
 function* mySaga() {
     // USER
@@ -22,6 +23,8 @@ function* mySaga() {
     yield takeLatest(types.FETCH_NOTES_SUCCESS, hideLoadingNotes); // hide load on success
     yield takeLatest(types.ADD_NOTE_REQUESTED, addNote); // post new note
     yield takeLatest(types.REMOVE_NOTE_REQUESTED, deleteNote); // delete notes
+
+    yield takeLatest(types.REFRESH_JWT, refreshJWT)
 }
 
 export default mySaga;
