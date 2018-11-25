@@ -13,7 +13,6 @@ function* mySaga() {
     // NOTEBOOKS
     yield takeLatest(types.FETCH_NOTEBOOKS_REQUESTED, fetchNotebooks); // get notebooks from user
     yield takeLatest(types.ADD_NOTEBOOK_REQUESTED, addNotebook); // post new notebook
-    yield takeLatest(types.USER_CREATION_REQUESTED, postNewUser) //Create a user
     yield takeLatest(types.REMOVE_NOTEBOOK_REQUESTED, deleteNotebook); // remover a notebook
     yield takeLatest(types.FETCH_NOTEBOOKS_REQUESTED, showLoadingNotebooks); // show load
     yield takeLatest(types.FETCH_NOTEBOOKS_SUCCESS, hideLoadingNotebooks); // hide load on success

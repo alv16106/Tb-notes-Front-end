@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 
 class NotificationElement extends Component {
+  componentDidMount(){
+    const { type, onDismissClick } = this.props;
+    if (type === 'success') {
+      setTimeout(onDismissClick, 2000);
+    }
+  }
+
   render() {
     const { 
       color,
@@ -8,7 +15,7 @@ class NotificationElement extends Component {
       text,
       onDismissClick 
     } = this.props;
-    
+
     return (
       <li className="toast" style={{ backgroundColor: color }}>
         <p className="toast__content">

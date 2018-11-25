@@ -143,7 +143,6 @@ export const addNotification = (
     color,
     type,
     text,
-    onDismissClick
 ) => ({
     type: types.ADD_NOTIFICATION,
     payload: {
@@ -151,11 +150,10 @@ export const addNotification = (
         color,
         type,
         text,
-        onDismissClick
     }
 })
 
-export const dismissNotification = (id) = ({
+export const dismissNotification = (id) => ({
     type: types.DISMISS_NOTIFICATION,
     payload: id
 })

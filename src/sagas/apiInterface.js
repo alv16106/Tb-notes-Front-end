@@ -53,6 +53,10 @@ export const createUser = (url, data) => {
       ...data
     })
   })
-    .then( response => response.json() )
+    .then( response => {
+      console.log(response);
+      return response.json()
+      
+    } )
     .catch( error => error );
 }

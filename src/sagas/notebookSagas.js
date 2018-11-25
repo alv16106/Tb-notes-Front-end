@@ -25,7 +25,7 @@ export function* fetchNotebooks(action) {
     console.log(Notebooks, "notebooks");
     yield put(actions.notebooksRequestSuccess(Notebooks));
   }
-  catch (e) { 
+  catch (e) {
     
   }
 }
