@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import uuid from 'uuid-v4';
 import { Field, reduxForm, formValueSelector } from 'redux-form'
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown/with-html';
+import * as selectors from '../../../reducers';
+import PageLoader from '../../LoadPage';
 
 import * as actions from '../../../actions';
 
@@ -13,12 +16,14 @@ import { dispatch } from 'rxjs/internal/observable/range';
 const NoteForm = ({
   title,
   body,
-  handleSubmit
+  onSubmit,
+  isSending,
+  handleSubmit,
+  history,
 }) => (
   <div className="note-content">
-  {console.log(title)}
     <div className="note-container">
-      <form className="note-form" onSubmit={handleSubmit} autoComplete="off">
+      <form className="note-form" onSubmit={handleSubmit( values => onSubmit(values, history)) } autoComplete="off">
         <Field
           className="title"
           name="title"
@@ -44,32 +49,37 @@ const NoteForm = ({
           escapeHtml={false} />
       </div>
     </div>
-
+    { isSending ? <PageLoader /> : null }
   </div>
+
 );
 
 const selector = formValueSelector('noteForm');
 
 const form = reduxForm({
   form: 'noteForm', // a unique identifier for this form
-  onSubmit(values, dispatch) {
-    actions.addNoteRequest()
-    dispatch(actions.addNoteRequest(
-      uuid(),
-      values.title,
-      values.body,
-    ));
-  },
 })(NoteForm)
 
-export default connect(
+export default withRouter(connect(
   state => {
     const title = selector(state, 'title');
     const body = selector(state, 'body');
+    const isSending = selectors.itsNoteSending(state);
     return ({
       title,
       body,
+      isSending,
     })
   },
-  undefined
-)(form);
+  dispatch => ({
+    onSubmit: (values, history) => {
+      actions.addNoteRequest()
+      dispatch(actions.addNoteRequest(
+        uuid(),
+        values.title,
+        values.body,
+        history
+      ));
+    }
+  })
+)(form));

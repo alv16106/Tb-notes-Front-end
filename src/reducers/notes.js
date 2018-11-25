@@ -167,15 +167,34 @@ const isLoading = (state = false, action) => {
     }
 }
 
+const isSending = (state = false, action) => {
+    switch (action.type) {
+        case types.ADD_NOTE_REQUESTED: {
+            return true;
+        }
+        case types.ADD_NOTE_SUCCESS: {
+            return false;
+        }
+        case types.ADD_NOTE_FAILURE: {
+            return false;
+        }
+        default: {
+            return state;
+        }
+    }
+}
+
 //selectors
 export const getNote = (state, id) => state.byId[id];
 export const getNotes = (state) => state.order.map(
     id => getNote(state, id)
 );
 export const itsLoading = (state) => state.isLoading;
+export const itsSending = (state) => state.isSending;
 
 export default combineReducers({ 
     byId,
     order,
     isLoading,
+    isSending,
 });

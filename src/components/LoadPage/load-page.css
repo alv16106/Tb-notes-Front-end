@@ -1,0 +1,29 @@
+.background {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background .loaderWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.background .title {
+    color: white;
+}
+
+.background .spinner {
+    width: 5rem;
+    height: 5rem;    
+}
+
+.background .spinner .double-bounce1, .double-bounce2 { 
+    background-color: wheat;
+}

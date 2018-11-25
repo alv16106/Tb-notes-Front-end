@@ -2,6 +2,7 @@ import { call, put, select } from 'redux-saga/effects'
 import * as types from '../types';
 import { BASE_API_URL } from '../constants'
 import { get, post, change } from './apiInterface';
+import { BrowserRouter } from 'react-router-dom'
 
 import reducers, * as selectors from '../reducers';
 import * as actions from '../actions';
@@ -44,7 +45,7 @@ export function* hideLoadingNotes(action) {
 
 export function* addNote(action) {
   const { token } = yield select(selectors.getUser);
-  const { id, title, body } = action.payload;
+  const { id, title, body, history } = action.payload;
   const notebookId = yield select(selectors.getCurrentNotebook);
   try {
     const data = {
@@ -53,6 +54,7 @@ export function* addNote(action) {
       owner: notebookId,
     }
     const newNote = yield call(post, `${BASE_API_URL}/note/`, token, data);
+    history.push('/');
     yield put(actions.addNoteSuccess(id, newNote.id, newNote.title, newNote.body));
   } catch (e) {
     //yield put({ type: types.ADD_NOTE_FAILURE, payload: { e, id: action.payload.id } });

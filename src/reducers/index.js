@@ -63,6 +63,7 @@ export const itsNotebooksLoading = (state) => fromNotebooks.itsLoading(state.not
 export const getNote = (state, id)=> fromNotes.getNote(state.notes, id);
 export const getNotes = (state) => fromNotes.getNotes(state.notes);
 export const itsNotesLoading = (state) => fromNotes.itsLoading(state.notes);
+export const itsNoteSending = (state) => fromNotes.itsSending(state.notes);
 // currents 
 export const getCurrentNote = (state) => state.currentNote;
 export const getCurrentNotebook = (state) => state.currentNotebook; 

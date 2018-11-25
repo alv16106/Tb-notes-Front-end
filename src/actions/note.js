@@ -44,12 +44,14 @@ export const addNoteRequest = (
   id,
   title,
   body,
+  history,
 ) => ({
   type: types.ADD_NOTE_REQUESTED,
   payload: {
     id,
     title,
     body,
+    history,
   }
 });
 export const addNoteSuccess = (
