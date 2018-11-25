@@ -16,7 +16,6 @@ const NoteForm = ({
   handleSubmit
 }) => (
   <div className="note-content">
-  {console.log(title)}
     <div className="note-container">
       <form className="note-form" onSubmit={handleSubmit} autoComplete="off">
         <Field

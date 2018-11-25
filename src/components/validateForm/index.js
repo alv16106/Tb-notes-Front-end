@@ -7,12 +7,12 @@ export const required = value =>
     : 'Este campo es requerido';
 
 export const minLength = value =>
-    value.length < 4
+    value.length < 8
     ? 'El valor ingresado es muy corto'
     : undefined;
 
 export const maxLength = value =>
-    value.length > 10
+    value.length > 15
     ? 'El valor ingresado es muy largo' 
     : undefined;
 

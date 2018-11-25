@@ -2,6 +2,7 @@ import { call, put, select } from 'redux-saga/effects'
 import * as types from '../types';
 import { BASE_API_URL } from '../constants'
 import { get, post, change } from './apiInterface';
+import uuid from 'uuid-v4';
 
 import reducers, * as selectors from '../reducers';
 import * as actions from '../actions';
@@ -33,6 +34,7 @@ export function* hideLoadingNotes(action) {
 }
 
 export function* addNote(action) {
+  const notificationID = uuid();
   const { token } = yield select(selectors.getUser);
   const { id, title, body } = action.payload; 
   const notebookId = yield select(selectors.getCurrentNotebook);
@@ -44,18 +46,23 @@ export function* addNote(action) {
     }
     const newNote = yield call(post, `${BASE_API_URL}/note/`, token, data);
     yield put(actions.addNoteSuccess(id, newNote.id, newNote.title, newNote.body));
+    yield put(actions.addNotification(notificationID, '#FF6961', 'success', 'Nota agregada'));
   } catch (e) {
+    yield put(actions.addNotification(notificationID, '#FF6961', 'failture', 'No se pudo conectar con el servidor'));
     //yield put({ type: types.ADD_NOTE_FAILURE, payload: { e, id: action.payload.id } });
   }
 }
 
 export function* deleteNote(action) {
+  const notificationID = uuid();
   const { token } = yield select(selectors.getUser);
   const { id } = action.payload;
   try {
     const deleted = yield call(change, `${BASE_API_URL}/note/${id}/`, token, 'DELETE', {});
     yield put(actions.removeNoteSuccess(id));
+    yield put(actions.addNotification(notificationID, '#FF6961', 'success', 'Nota borrada'));
   } catch (e) { 
+    yield put(actions.addNotification(notificationID, '#FF6961', 'failture', 'No se pudo conectar con el servidor'));
     //yield put({type: types.REMOVE_FRIEND_FAILTURE, payload: e});
   }
 }

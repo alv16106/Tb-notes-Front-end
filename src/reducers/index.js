@@ -6,7 +6,7 @@ import * as types from '../types';
 import notes, * as fromNotes from './notes';
 import notebooks, * as fromNotebooks from './notebooks';
 import user, * as fromUser from './user';
-
+import notifications from './notifications'
 
 // notebook form
 const notebookFormShowing = (state = false, action) => {
@@ -87,6 +87,7 @@ export default combineReducers({
     notebooks,
     currentNote,
     currentNotebook,
+    notifications,
     form: formReducer,
 });
 
