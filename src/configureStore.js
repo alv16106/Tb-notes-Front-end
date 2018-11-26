@@ -23,7 +23,7 @@ const configureStore = () => {
   );
 
   const persistor = persistStore(store);
-  persistor.purge()
+  //persistor.purge()
 
   sagaMiddleware.run(mySaga);
 

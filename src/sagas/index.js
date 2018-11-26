@@ -1,8 +1,8 @@
 import { takeLatest } from 'redux-saga/effects';
 
 import * as types from '../types';
-import { fetchLogIn, fetchLogOut, postNewUser } from './user'; 
-<<<<<<< HEAD
+import { fetchLogIn, fetchLogOut, postNewUser } from './user';
+
 import { 
     fetchNotebooks,
     addNotebook,
@@ -17,11 +17,7 @@ import {
     hideLoadingNotes,
     deleteNote
 } from './noteSagas';
-=======
-import { fetchNotebooks, addNotebook, deleteNotebook, showLoadingNotebooks, hideLoadingNotebooks } from './notebookSagas';
-import { fetchNotasFromNotebook, addNote, showLoadingNotes, hideLoadingNotes, deleteNote } from './noteSagas';
 import { refreshJWT } from './user';
->>>>>>> 64dd81a19f1d70d8b28e65d767a0e519997eca26
 
 function* mySaga() {
     // USER

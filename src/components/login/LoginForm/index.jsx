@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import {customInput} from '../../customInputs'
+import { customInput } from '../../customInputs'
 import {
     required,
     validEmail,
