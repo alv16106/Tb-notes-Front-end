@@ -2,6 +2,7 @@ import { call, put, select } from 'redux-saga/effects'
 import * as types from '../types'
 import { BASE_API_URL } from '../constants'
 import { post, change } from './apiInterface';
+import uuid from 'uuid-v4';
 
 import * as selectors from '../reducers';
 import * as actions from '../actions';
@@ -19,14 +20,15 @@ export const get = (url, token) => {
 }
 
 export function* fetchNotebooks(action) {
+  const notificationID = uuid();
   try {
     const { token, uid } = yield select(selectors.getUser);
     const Notebooks = yield call(get, `${BASE_API_URL}/user/${uid}/all-notebooks/`, token);
     console.log(Notebooks, "notebooks");
     yield put(actions.notebooksRequestSuccess(Notebooks));
   }
-  catch (e) { 
-    
+  catch (e) {
+    yield put(actions.addNotification(notificationID, '#FF6961', 'failture', 'No se pudo conectar con el servidor'));
   }
 }
 
@@ -39,6 +41,7 @@ export function* hideLoadingNotebooks(action) {
 }
 
 export function* addNotebook(action) {
+  const notificationID = uuid();
   try {
     const { id, name, color } = action.payload;
     const { token, uid } = yield select(selectors.getUser);
@@ -51,18 +54,23 @@ export function* addNotebook(action) {
     const added = yield call(post, `${BASE_API_URL}/notebook/`, token, data );
     console.log(added);
     yield put(actions.addNotebookSuccess(id, added.id));
- } catch (e) { 
+    yield put(actions.addNotification(notificationID, '#FF6961', 'success', 'Cuaderno agregado'));
+ } catch (e) {
+    yield put(actions.addNotification(notificationID, '#FF6961', 'failture', 'No se pudo conectar con el servidor'));
     //yield put({type: types.ADD_NOTEBOOK_FAILURE, payload: { e, id: action.payload.id }});
  }
 }
 
 export function* deleteNotebook(action) {
+  const notificationID = uuid();
   const { id } = action.payload;
   const { token } = yield select(selectors.getUser);
   try {
     const deleted = yield call(change, `${BASE_API_URL}/notebook/${id}/`, token, 'DELETE');
     yield put(actions.removeNotebookSuccess(id));
-  } catch (e) { 
+    yield put(actions.addNotification(notificationID, '#FF6961', 'success', 'Cuaderno borado'));
+  } catch (e) {
+    yield put(actions.addNotification(notificationID, '#FF6961', 'failture', 'No se pudo conectar con el servidor'));
     //yield put({type: types.REMOVE_FRIEND_FAILURE, payload: e});
   }
 }

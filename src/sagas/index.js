@@ -2,6 +2,7 @@ import { takeLatest } from 'redux-saga/effects';
 
 import * as types from '../types';
 import { fetchLogIn, fetchLogOut, postNewUser } from './user'; 
+<<<<<<< HEAD
 import { 
     fetchNotebooks,
     addNotebook,
@@ -16,6 +17,11 @@ import {
     hideLoadingNotes,
     deleteNote
 } from './noteSagas';
+=======
+import { fetchNotebooks, addNotebook, deleteNotebook, showLoadingNotebooks, hideLoadingNotebooks } from './notebookSagas';
+import { fetchNotasFromNotebook, addNote, showLoadingNotes, hideLoadingNotes, deleteNote } from './noteSagas';
+import { refreshJWT } from './user';
+>>>>>>> 64dd81a19f1d70d8b28e65d767a0e519997eca26
 
 function* mySaga() {
     // USER
@@ -25,7 +31,6 @@ function* mySaga() {
     // NOTEBOOKS
     yield takeLatest(types.FETCH_NOTEBOOKS_REQUESTED, fetchNotebooks); // get notebooks from user
     yield takeLatest(types.ADD_NOTEBOOK_REQUESTED, addNotebook); // post new notebook
-    yield takeLatest(types.USER_CREATION_REQUESTED, postNewUser) //Create a user
     yield takeLatest(types.REMOVE_NOTEBOOK_REQUESTED, deleteNotebook); // remover a notebook
     yield takeLatest(types.FETCH_NOTEBOOKS_REQUESTED, showLoadingNotebooks); // show load
     yield takeLatest(types.FETCH_NOTEBOOKS_SUCCESS, hideLoadingNotebooks); // hide load on success
@@ -36,6 +41,8 @@ function* mySaga() {
     yield takeLatest(types.FETCH_NOTES_SUCCESS, hideLoadingNotes); // hide load on success
     yield takeLatest(types.ADD_NOTE_REQUESTED, addNote); // post new note
     yield takeLatest(types.REMOVE_NOTE_REQUESTED, deleteNote); // delete notes
+
+    yield takeLatest(types.REFRESH_JWT, refreshJWT)
 }
 
 export default mySaga;

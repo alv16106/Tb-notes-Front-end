@@ -44,7 +44,6 @@ const byId = (state = {}, action) => {
           confirmed: true,
         };
       });
-      console.log(newState);
       return newState
     }
     //REMOVE  A NOTEBOOK SUCCEDED

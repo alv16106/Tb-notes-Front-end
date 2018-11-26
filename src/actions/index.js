@@ -16,6 +16,15 @@ export const signUpRequest = (
     }
 })
 
+export const refreshJWT = (
+    oldJWT
+) => ({
+    type: types.REFRESH_JWT,
+    payload: {
+        oldJWT
+    }
+})
+
 export const signUpSuccess = (
 ) => ({
     type: types.USER_CREATION_SUCCESS,
@@ -151,6 +160,26 @@ export const setCurrentNotebook = (id) => ({
 export const setCurrentNote = (id) => ({
     type: types.CURRENT_NOTE_SETTED,
     payload: { id }
+})
+
+export const addNotification = (
+    id,
+    color,
+    type,
+    text,
+) => ({
+    type: types.ADD_NOTIFICATION,
+    payload: {
+        id,
+        color,
+        type,
+        text,
+    }
+})
+
+export const dismissNotification = (id) => ({
+    type: types.DISMISS_NOTIFICATION,
+    payload: id
 })
 
 

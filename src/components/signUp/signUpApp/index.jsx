@@ -13,8 +13,7 @@ import { getUser } from '../../../reducers'
 
 class SignUpApp extends Component {
   render() {
-    const { login, auth } = this.props
-    console.log(this.props);
+    const { login, auth } = this.props 
     
     return (
       !auth ?
@@ -37,10 +36,10 @@ export default compose(
     state => ({
       auth: getUser(state).token,
     }),
-    ( dispatch ) => ({
+    ( dispatch, ownProps ) => ({
       login(values) {
         dispatch(actions.signUpRequest(values.username, values.passwordOne, values.email));
-        this.props.history.push(routes.SIGN_IN)
+        ownProps.history.push(routes.SIGN_IN)
       }
     })
   )
