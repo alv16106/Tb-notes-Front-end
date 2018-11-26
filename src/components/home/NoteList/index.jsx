@@ -18,30 +18,30 @@ const NoteList = ({
   currentNote,
   isLoading
 }) => (
-    <div className="noteList">
-      { /*<NoteListItem title="Lorem Ipsum" /> */}
-      <ul className="menuList folders scroll" id="style-2">
-        {isLoading ?
-          <Loader /> : notes.length > 0 ? notes.map(
-            note => <NoteListItem
-              id={note.id}
-              key={note.id}
-              title={note.title}
-              select={currentNote == note.id}
-            />
-          ) :
-            <div className="empty">
-              <h3 className="title"> No hay notas </h3>
-            </div>
-        }
+  <div className="noteList">
+    { /*<NoteListItem title="Lorem Ipsum" /> */}
+    <ul className="menuList folders scroll" id="style-2">
+      {isLoading ?
+        <Loader /> : notes.length > 0 ? notes.map(
+          note => <NoteListItem
+            id={note.id}
+            key={note.id}
+            title={note.title}
+            select={currentNote == note.id}
+          />
+        ) :
+          <div className="empty">
+            <h3 className="title"> No hay notas </h3>
+          </div>
+      }
 
-      </ul>
+    </ul>
 
-      <div onClick={() => history.push(routes.NOTE)}>
-        <NoteListItem icon="fas fa-folder-plus" title="Add" add={true} />
-      </div>
+    <div onClick={() => history.push(routes.NOTE)}>
+      <NoteListItem icon="fas fa-folder-plus" title="Add" add={true} />
     </div>
-  );
+  </div>
+);
 
 export default withRouter(connect(
   state => ({

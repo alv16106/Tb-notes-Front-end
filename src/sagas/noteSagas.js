@@ -13,9 +13,11 @@ import * as actions from '../actions';
 
 export function* fetchNotes(action) {
   const { uid, token } = yield select(selectors.getUser);
+  console.log(`${BASE_API_URL}/user/${uid}/all-notes/`)
   try {
     const notes = yield call(get, `${BASE_API_URL}/user/${uid}/all-notes/`, token);
-    yield put(actions.notesFetchSuccess(notes));
+    const n = notes === undefined ? [] : notes;
+    yield put(actions.notesFetchSuccess(n));
   } catch (e) {
     //yield put({ type: types.FETCH_NOTE_FAILTURE, payload: e });
   }
@@ -23,6 +25,11 @@ export function* fetchNotes(action) {
 
 export function* fetchNotasFromNotebook(action) {
   const { token } = yield select(selectors.getUser);
+  const currentNotebook = yield select(selectors.getCurrentNotebook);
+  console.log(currentNotebook);
+  if (currentNotebook === 'all' || currentNotebook === 'friends') {
+    return;
+  }
   const { id } = action.payload;
   try {
     const notes = yield call(get, `${BASE_API_URL}/notebook/${id}/all-notes/`, token);

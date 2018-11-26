@@ -48,7 +48,6 @@ const SideMenu = ({
                 name={notebook.name}
                 color={notebook.color}
                 active={notebook.confirmed} />
-
             )
 
         }
