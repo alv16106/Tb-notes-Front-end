@@ -67,7 +67,7 @@ const PopupCard = ({children}) => (
 
 export const PopupHeader = ({ children }) => (
   <div className="header">
-    <h1>{children}</h1>
+    <h3>{children}</h3>
     <hr />
   </div>
 )
