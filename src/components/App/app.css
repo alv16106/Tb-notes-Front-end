@@ -1,17 +1,21 @@
 .container {
-  display: grid;
-  grid-gap: 50px 100px;
+  grid-gap: 0rem 0rem;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #e9e8e8;
 }
 
 .container > div {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #e9e8e8;
   align-items: center;
   align-content: center;
   align-self: center;
 }
 
 .row {
-  margin: auto;
+  margin: auto 5rem;
 }
 
 body {

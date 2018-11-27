@@ -3,36 +3,25 @@
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
+	border: 0;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
+	font-weight: 600;
 	font-family:Arial;
-	font-size:17px;
-	padding:10px 20px;
+	font-size:1.5rem;
 	text-decoration:none;
-	margin-left: 10px;
+	margin: 10px;
+	width: 20rem;
+	height: 4rem;
+	transition: all .5s ease;
 }
 
 .button-blue:hover {
-	background-color:#408c99;
+	background-color:#56b0d1;
 }
 
 .button-blue:active {
 	position:relative;
 	top:1px;
-}
-
-input {
-	box-shadow: 0 0 3px #ffffff; 
-	margin: 10px 
-}
-
-.valid {
-	box-shadow: 0 0 3px #24e264; 
-	margin: 10px 
-}
-
-.invalid {
-	box-shadow: 0 0 3px #f0291b; 
-	margin: 10px 
 }

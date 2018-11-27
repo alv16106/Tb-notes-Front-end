@@ -42,7 +42,11 @@ class NotebookForm extends Component {
               type="color"
               placeholder="nombre"
             />
-            <button className="submit" type="submit"> Add </button>
+            <button className="submit button-blue" type="submit"> Add </button>
+            <br/>
+            <br/>
+            <br/>
+            <hr></hr>
           </form>
         </PopupContent>
       </Popup>

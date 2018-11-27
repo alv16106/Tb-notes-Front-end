@@ -20,6 +20,7 @@ class SignUpApp extends Component {
       <div className = "container">
         <div className="row">
           <h1>Sign Up</h1>
+          <hr></hr>
         </div>
         <SignUpForm
           onSubmit={values => login(values)}

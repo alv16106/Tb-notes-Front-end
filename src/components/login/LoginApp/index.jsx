@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom'
 import * as routes from '../../../constants/routes'
 import { getUser } from '../../../reducers'
+import './login-app.css'
 
 class LoginApp extends Component {
   render() {
@@ -21,6 +22,7 @@ class LoginApp extends Component {
       <div className = "container">
         <div className="row">
           <h1>Sign In</h1>
+          <hr></hr>
         </div>
         <LogInForm
           onSubmit={values => login(values)}
