@@ -50,12 +50,11 @@ class Popup extends Component {
   }
 }
 
-
 export default connect(
   undefined,
-  dispatch => ({
+  (dispatch, { hide }) => ({
     close: (e) => {
-      dispatch(actions.hideNotebookForm());
+      dispatch(hide());
     }
   })
 )(Popup);

@@ -1,8 +1,10 @@
-import { call, put } from 'redux-saga/effects'
+import { call, put, select } from 'redux-saga/effects'
 import { BASE_API_URL } from '../constants'
-import { createUser } from './apiInterface';
-import * as actions from '../actions';
+import { createUser, get } from './apiInterface';
 import uuid from 'uuid-v4';
+
+import * as actions from '../actions';
+import reducers, * as selectors from '../reducers';
 
 const postLogin = (url, username, password) => {
     const user = JSON.stringify({
@@ -87,4 +89,16 @@ export function* refreshJWT(action){
     const { oldJWT } = action.payload;
     const newJWT = yield call(refresh, `${BASE_API_URL}/auth-jwt-refresh/`, oldJWT);
     yield put(actions.logInSuccess(newJWT.token, newJWT.userid, newJWT.username));
+}
+
+export function* fetchFriends(action) {
+    const { uid, token } = yield select(selectors.getUser);
+
+    try{
+        const friends = yield call(get, `${BASE_API_URL}/user/${uid}/friends/`, token);
+        const n = friends === undefined ? [] : friends;
+        yield put(actions.fetchFriendsSucceed(n));
+    }catch(e) {
+        alert(e);
+    }
 }

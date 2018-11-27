@@ -22,7 +22,7 @@ class NotebookForm extends Component {
 
   render() {
     return (
-      <Popup>
+      <Popup hide={actions.hideNotebookForm} >
         <PopupHeader>
           Create New Notebook
         </PopupHeader>

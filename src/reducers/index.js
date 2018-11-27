@@ -55,6 +55,7 @@ export const getUser = (state) => fromUser.getUser(state.user);
 export const getFriend = (state, id) => fromUser.getFriend(state.user, id);
 export const getFriends = (state) => fromUser.getFriends(state.user);
 export const itsFriendsLoading = (state) => fromUser.itsFriendsLoading(state.user);
+export const isShowingFriendsPopup = (state) => fromUser.isShowingFriendsPopup(state.user);
 // notebooks
 export const getNotebook = (state, id)=> fromNotebooks.getNotebook(state.notebook, id);
 export const getNotebooks = (state) => fromNotebooks.getNotebooks(state.notebooks);

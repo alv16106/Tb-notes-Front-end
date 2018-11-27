@@ -67,9 +67,7 @@ export const fetchFriendsRequest = () => ({
     type: types.FRIENDS_FETCH_REQUESTED,
 })
 
-export const fetchFriendsSucceed = ({ 
-    friends,
- }) => ({
+export const fetchFriendsSucceed = ( friends ) => ({
     type: types.FRIENDS_FETCH_SUCCESS,
     payload: { friends },
 })
@@ -133,6 +131,14 @@ export const removeFriendSuccess = (
     }
 })
 
+export const showFriendForm = () => ({
+    type: types.SHOW_POPUP_FRIENDS,
+})
+
+export const hideFriendForm = () => ({
+    type: types.HIDE_POPUP_FRIENDS,
+})
+
 export const authUser = (
     username,
     password
@@ -185,6 +191,7 @@ export const dismissNotification = (id) => ({
 
 export const notesFetchRequest = noteActions.notesFetchRequest;
 export const notesFetchSuccess = noteActions.notesFetchSuccess;
+export const notesFetchFromFriendRequest = noteActions.notesFetchFromFriendRequest;
 export const startLoadingNotes = noteActions.startLoadingNotes;
 export const stopLoadingNotes = noteActions.stopLoadingNotes;
 export const noteRequest = noteActions.noteRequest;

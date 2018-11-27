@@ -23,6 +23,18 @@ export function* fetchNotes(action) {
   }
 }
 
+export function* fetchNotesFromFriend(action) {
+  const { uid, token } = yield select(selectors.getUser);
+  const { id } = action.payload; 
+  try {
+    const notes = yield call(get, `${BASE_API_URL}/user/${uid}/all-notes-from/?id=${id}`, token);
+    const n = notes === undefined ? [] : notes;
+    yield put(actions.notesFetchSuccess(n));
+  } catch (e) {
+    
+  }
+}
+
 export function* fetchNotasFromNotebook(action) {
   const { token } = yield select(selectors.getUser);
   const currentNotebook = yield select(selectors.getCurrentNotebook);

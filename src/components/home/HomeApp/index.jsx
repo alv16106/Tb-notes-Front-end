@@ -7,8 +7,10 @@ import SideMenu from '../SideMenu';
 import NoteList from '../NoteList';
 import CurrentNote from '../CurrentNote';
 import NotebookForm from '../NotebookForm';
+import FriendsPopup from '../FriendPopupForm';
 
 import * as actions from '../../../actions';
+import * as selectors from '../../../reducers';
 
 
 class HomeApp extends React.Component {
@@ -30,7 +32,7 @@ class HomeApp extends React.Component {
     }
 
     render() {
-        const { notebookFormShowing } = this.props;
+        const { notebookFormShowing, friendsPopupShowing } = this.props;
         return(
             <div className="homeApp">
                 <SideMenu />
@@ -38,6 +40,9 @@ class HomeApp extends React.Component {
                 <CurrentNote />
                 {
                     notebookFormShowing ? <NotebookForm /> : null
+                }
+                {
+                    friendsPopupShowing ? <FriendsPopup /> : null
                 }
             </div>
         );
@@ -47,6 +52,7 @@ class HomeApp extends React.Component {
 export default connect(
     state => ({
         notebookFormShowing: state.notebookFormShowing,
+        friendsPopupShowing: selectors.isShowingFriendsPopup(state),
     }),
     dispatch => ({
         loadNotebooks: () => {

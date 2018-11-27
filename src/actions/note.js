@@ -12,6 +12,11 @@ export const notesFetchSuccess = ( notes ) => ({
   payload: notes 
 })
 
+export const notesFetchFromFriendRequest = (id) => ({
+  type: types.FETCH_NOTES_FROM_FRIEND_REQUEST,
+  payload: { id }
+})
+
 export const startLoadingNotes = () => ({
   type: types.TOGGLED_UP_LOADING_NOTES,
 })

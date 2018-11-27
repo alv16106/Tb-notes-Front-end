@@ -57,6 +57,7 @@ export const getUser = (state) => ({
 export const getFriend = (state, id) => fromFriends.getFriend(state.friendList, id);
 export const getFriends = (state) => fromFriends.getFriends(state.friendList);
 export const itsFriendsLoading = (state) => fromFriends.itsLoading(state.friendList); 
+export const isShowingFriendsPopup = (state) => fromFriends.isShowingFriendsPopup(state.friendList);
 
 // reducer
 
