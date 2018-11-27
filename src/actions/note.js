@@ -98,14 +98,10 @@ export const removeNoteSuccess = (
 
 //share
 export const shareNoteRequest = (
-  id,
-  from,
   to,
 ) => ({
   type: types.SHARE_NOTE_REQUESTED,
   payload: {
-    id,
-    from,
     to
   }
 })

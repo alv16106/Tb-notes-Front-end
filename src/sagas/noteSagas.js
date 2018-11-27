@@ -96,6 +96,26 @@ export function* deleteNote(action) {
   }
 }
 
+export function* shareNote(action) {
+  const notificationID = uuid();
+  const { uid, token } = yield select(selectors.getUser);
+  const currentNote = yield select(selectors.getCurrentNote);
+  const { to } = action.payload;
+  const data = {
+    owner: uid,
+    shared_to: to,
+    note: currentNote,
+  }
+  try {
+    console.log(data);
+    const shared = yield call(post, `${BASE_API_URL}/shared/`, token, data);
+    yield put(actions.addNotification(notificationID, '#FF6961', 'success', 'Nota compartida'));
+  } catch (e) { 
+    console.error(e);
+    yield put(actions.addNotification(notificationID, '#FF6961', 'failture', 'No se pudo compartir nota'));
+  }
+}
+
 /*
 export function* fetchNota(action) {
   try {

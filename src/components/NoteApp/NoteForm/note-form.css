@@ -58,7 +58,13 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0.15rem 0.15rem 7px 0px rgba(0,0,0,0.7);
+    transition: 0.25s ease-in-out;
 }
+
+.note-form .send-note button:hover {
+    transform: scale(1.2);
+}
+
 
 .note-form .send-note button i { 
 }

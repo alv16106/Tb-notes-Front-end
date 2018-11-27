@@ -21,7 +21,8 @@ import {
     fetchNotasFromNotebook,
     addNote, showLoadingNotes,
     hideLoadingNotes,
-    deleteNote
+    deleteNote,
+    shareNote,
 } from './noteSagas';
 
 function* mySaga() {
@@ -45,6 +46,7 @@ function* mySaga() {
     yield takeLatest(types.FETCH_NOTES_SUCCESS, hideLoadingNotes); // hide load on success
     yield takeLatest(types.ADD_NOTE_REQUESTED, addNote); // post new note
     yield takeLatest(types.REMOVE_NOTE_REQUESTED, deleteNote); // delete notes
+    yield takeLatest(types.SHARE_NOTE_REQUESTED, shareNote); // share note
     //
 }
 

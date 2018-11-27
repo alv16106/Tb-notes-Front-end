@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import uuid from 'uuid-v4';
 import { Field, reduxForm, formValueSelector } from 'redux-form'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown/with-html';
 import * as selectors from '../../../reducers';
+
 import PageLoader from '../../LoadPage';
 
 import * as actions from '../../../actions';
+
 
 import './note-form.css';
 import { dispatch } from 'rxjs/internal/observable/range';
