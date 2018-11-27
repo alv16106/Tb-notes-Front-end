@@ -30,11 +30,11 @@ class LogInForm extends Component {
               id = "password"
               validate={[required, minLength]}
             />
-            <div className="row">
+            
               <button className="button-blue" type="submit">
                 Sign In
               </button>
-            </div>
+            
             
           </form>
       );

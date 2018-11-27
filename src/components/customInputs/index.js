@@ -1,17 +1,19 @@
 import React from 'react'
+import styles from './customInputs.css'
 
 export const customInput = props => {
   const { label, id, type, meta } = props;
+  console.log(meta.error);
   return (
-    <div className="row">
+    <div className={`textInput`}>
         <input
           {...props.input}
           type={type}
           id={id}
+          placeholder={label}
           className={meta.touched ? ( meta.error ? "invalid": "valid") : ""}
         />
-        <label htmlFor={id}>{label}</label>
-        <span className="help"></span>
+        {<span className="help">{meta.touched ? meta.error: ''}</span>}
     </div>
   );
 };

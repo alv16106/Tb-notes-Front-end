@@ -1,0 +1,43 @@
+.textInput{
+  box-shadow: 0 0 3px #ffffff; 
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.textInput > input {
+  height: 2rem;
+  transition: all .2s ease;
+  border: 3px solid #ccc;
+  padding: 1rem 1rem;
+}
+
+.textInput > input:focus {
+  border: 3px solid rgb(163, 162, 162);
+}
+
+.textInput > .valid {
+  border: 3px solid #6de997;
+  transition: all .5s ease;
+}
+
+.textInput > .invalid {
+  border: 3px solid #df736b;
+  transition: all .5s ease;
+}
+
+.textInput > .valid:focus {
+  border: 3px solid #46d877;
+  transition: all .5s ease;
+}
+
+.textInput > .invalid:focus {
+  border: 3px solid #e94c41;
+  transition: all .5s ease;
+}
+
+.help{
+  transition: all .8s ease;
+  font-size: 0.8rem;
+  color: #d86f67;
+}
