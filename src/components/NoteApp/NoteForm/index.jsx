@@ -10,7 +10,6 @@ import PageLoader from '../../LoadPage';
 import * as actions from '../../../actions';
 
 import './note-form.css';
-import { dispatch } from 'rxjs/internal/observable/range';
 
 
 const NoteForm = ({

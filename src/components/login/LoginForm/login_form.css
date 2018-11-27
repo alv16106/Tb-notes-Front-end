@@ -8,7 +8,6 @@
 	cursor:pointer;
 	color:#ffffff;
 	font-weight: 600;
-	font-family:Arial;
 	font-size:1.5rem;
 	text-decoration:none;
 	margin: 10px;
@@ -24,4 +23,17 @@
 .button-blue:active {
 	position:relative;
 	top:1px;
+	font-size:1.5rem;
+}
+
+.small{
+	width: 4.2rem;
+	height: 4.2rem;
+}
+
+.oneLineForm{
+	font-size:1rem;
+	display: flex;
+	flex-direction: row;
+	margin: 0 auto;
 }

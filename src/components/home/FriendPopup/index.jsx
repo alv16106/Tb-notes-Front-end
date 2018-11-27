@@ -7,8 +7,10 @@ import Popup, { PopupHeader, PopupContent } from '../../Popup';
 import FriendItem from '../../FriendItem';
 import * as actions from '../../../actions';
 import * as selectors from '../../../reducers';
+import './friendForm.css'
+import FriendPopupForm from './FriendPopupForm/FriendPopupForm';
 
-class FriendPopupForm extends Component {
+class FriendPopup extends Component {
 
   constructor(props) {
     super(props);
@@ -26,19 +28,17 @@ class FriendPopupForm extends Component {
       <Popup hide={actions.hideFriendForm}>
         <PopupHeader>
           Friend List
-                </PopupHeader>
+        </PopupHeader>
         <PopupContent>
           {  /** LISTA */}
-          <ul className="friendlist">
+          <ul className="friendlist scroll">
             {friends.map(
               friend => (
                 <FriendItem username={friend.username} key={friend.id} id={friend.id} />
               )
             )}
           </ul>
-          <form>
-
-          </form>
+          <FriendPopupForm/>
         </PopupContent>
 
       </Popup>
@@ -55,4 +55,4 @@ export default connect(
       dispatch(actions.fetchFriendsRequest());
     },
   })
-)(FriendPopupForm);
+)(FriendPopup);

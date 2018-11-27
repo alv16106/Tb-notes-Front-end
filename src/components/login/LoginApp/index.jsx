@@ -21,7 +21,7 @@ class LoginApp extends Component {
       !auth ?
       <div className = "container">
         <div className="row">
-          <h1>Sign In</h1>
+          <h1 className="titulo">Sign In</h1>
           <hr></hr>
         </div>
         <LogInForm
