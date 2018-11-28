@@ -17,7 +17,7 @@ class NotificationElement extends Component {
     } = this.props;
 
     return (
-      <li className="toast" style={{ backgroundColor: color }}>
+      <li className={`toast ${type}`}>
         <p className="toast__content">
           { text }
         </p>

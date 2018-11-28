@@ -10,7 +10,9 @@ export const change = (url, token, method, body) => fetch(url, {
   },
   body: body ? JSON.stringify(body) : {}
 })
-  .then(response => method !== 'DELETE' ? response.json() : response);
+  .then(response => {
+    return method !== 'DELETE' ? response.json() : response
+  })
 
 
 
@@ -23,7 +25,6 @@ export const get = (url, token) =>
     }
   })
     .then( response => response.json() )
-    .catch( error => error );
 
 
 export const post = (url, token, data) => {
@@ -42,7 +43,6 @@ export const post = (url, token, data) => {
 }
 
 export const createUser = (url, data) => {
-  console.log(data, 'este usuario se quiere meter');
   return fetch(url, {
     method: 'POST',
     headers: {

@@ -19,7 +19,7 @@ class SignUpApp extends Component {
       !auth ?
       <div className = "container">
         <div className="row">
-          <h1>Sign Up</h1>
+          <h1 className="titulo">Sign Up</h1>
           <hr></hr>
         </div>
         <SignUpForm

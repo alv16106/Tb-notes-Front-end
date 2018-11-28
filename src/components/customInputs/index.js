@@ -3,7 +3,6 @@ import styles from './customInputs.css'
 
 export const customInput = props => {
   const { label, id, type, meta } = props;
-  console.log(meta.error);
   return (
     <div className={`textInput`}>
         <input

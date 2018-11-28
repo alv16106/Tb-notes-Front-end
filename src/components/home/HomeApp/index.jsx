@@ -7,7 +7,7 @@ import SideMenu from '../SideMenu';
 import NoteList from '../NoteList';
 import CurrentNote from '../CurrentNote';
 import NotebookForm from '../NotebookForm';
-import FriendsPopup from '../FriendPopupForm';
+import FriendsPopup from '../FriendPopup';
 
 import * as actions from '../../../actions';
 import * as selectors from '../../../reducers';

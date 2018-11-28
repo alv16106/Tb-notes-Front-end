@@ -36,3 +36,19 @@
   right: 24px;
   width: 240px;
 }
+
+.success{
+  background-color: #77DD77;
+}
+
+.failture{
+  background-color: #FF6961;
+}
+
+.warning{
+  background-color: rgb(211, 221, 119);
+}
+
+.info{
+  background-color: rgb(119, 197, 221);
+}

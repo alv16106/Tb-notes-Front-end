@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form'
+import uuid from 'uuid-v4';
 
-import { customInput } from '../../customInputs';
 import Popup, { PopupHeader, PopupContent } from '../../Popup';
 import FriendItem from '../../FriendItem';
 import * as actions from '../../../actions';
 import * as selectors from '../../../reducers';
+import './friendForm.css'
+import FriendPopupForm from './FriendPopupForm/FriendPopupForm';
 
-class FriendPopupForm extends Component {
+class FriendPopup extends Component {
 
   constructor(props) {
     super(props);
@@ -20,25 +21,24 @@ class FriendPopupForm extends Component {
   }
 
   render() {
-    const { friends } = this.props;
-    console.log(friends);
+    const { friends, requestFriendship } = this.props;
     return (
       <Popup hide={actions.hideFriendForm}>
         <PopupHeader>
           Friend List
-                </PopupHeader>
+        </PopupHeader>
         <PopupContent>
           {  /** LISTA */}
-          <ul className="friendlist">
+          <ul className="friendlist scroll">
             {friends.map(
               friend => (
                 <FriendItem username={friend.username} key={friend.id} id={friend.id} />
               )
             )}
           </ul>
-          <form>
-
-          </form>
+          <FriendPopupForm
+            onSubmit={values => requestFriendship(values)}
+          />
         </PopupContent>
 
       </Popup>
@@ -54,5 +54,10 @@ export default connect(
     requestFriends: () => {
       dispatch(actions.fetchFriendsRequest());
     },
+    requestFriendship(values) {
+      console.log(values);
+      
+      dispatch(actions.addFriendRequest(uuid(), values.username))
+    }
   })
-)(FriendPopupForm);
+)(FriendPopup);
