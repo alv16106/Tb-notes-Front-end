@@ -83,6 +83,25 @@ export function* addNote(action) {
   }
 }
 
+export function* updateNote(action) {
+  const notificationID = uuid();
+  const { token } = yield select(selectors.getUser);
+  const { id, title, body, history } = action.payload;
+  try {
+    const data = {
+      title,
+      body,
+    }
+    const newNote = yield call(change, `${BASE_API_URL}/note/${id}/`, token, 'PATCH', data);
+    history.push('/');
+    yield put(actions.updateNoteSuccess(id, newNote.id, newNote.title, newNote.body));
+    yield put(actions.addNotification(notificationID, '#FF6961', 'success', 'Nota actualizada'));
+  } catch (e) {
+    yield put(actions.addNotification(notificationID, '#FF6961', 'failture', 'No se pudo actualizar'));
+    //yield put({ type: types.ADD_NOTE_FAILURE, payload: { e, id: action.payload.id } });
+  }
+}
+
 export function* deleteNote(action) {
   const notificationID = uuid();
   const { token } = yield select(selectors.getUser);

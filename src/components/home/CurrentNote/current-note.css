@@ -7,14 +7,14 @@
     flex-direction: column;
 }
 
-.send-note {
+.share {
     position: absolute;
     right: 0px;
     top: 0px;
 }
 
 
-.send-note button {
+.share button {
     display: flex;
     width: 3rem;
     height: 3rem;
@@ -31,6 +31,34 @@
     transition: 0.25s ease-in-out;
 }
 
-.send-note button:hover {
+.share button:hover {
+    transform: scale(1.2);
+}
+
+.edit {
+    position: absolute;
+    right: 6rem;
+    top: 0px;
+}
+
+
+.edit button {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: none;
+    box-sizing: border-box;
+    background: rgb(218, 149, 2);
+    color: white;
+    font-size: 1.5rem;
+    margin: 1.5rem 2rem;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0.15rem 0.15rem 7px 0px rgba(0,0,0,0.7);
+    transition: 0.25s ease-in-out;
+}
+
+.edit button:hover {
     transform: scale(1.2);
 }

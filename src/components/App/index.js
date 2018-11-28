@@ -12,6 +12,7 @@ import './app.css'
 import NavBar from '../NavBar';
 import SignUpApp from '../signUp/signUpApp';
 import NoteApp from '../../components/NoteApp/NoteForm';
+import NoteEditApp from '../../components/NoteApp/NoteFromEdit';
 import NotificationContainer from '../NotificationContainer';
 
 const userIsAuthenticated = connectedRouterRedirect({
@@ -34,6 +35,7 @@ const App = () =>
         <Route exact path={routes.NOTE} component={ userIsAuthenticated(NoteApp) } />
         <Route exact path={routes.SIGN_IN} component={ LoginApp } />
         <Route exact path={routes.SIGN_UP} component={ SignUpApp } />
+        <Route exact path={routes.EDITNOTE} component={ NoteEditApp } />
       </div>
     </div>
   </BrowserRouter>

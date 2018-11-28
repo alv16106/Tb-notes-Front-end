@@ -107,13 +107,19 @@ export const shareNoteRequest = (
 })
 
 //update
-export const updateNoteRequest = () => ({
+export const updateNoteRequest = (id, title, body, history) => ({
   type: types.UPDATE_NOTE_REQUESTED,
+  payload: {
+    id,
+    title,
+    body,
+    history,
+  }
 })
 export const updateNoteSuccess = (
   old_id, id, title, body
 ) => ({
-  type: types.UPDATE_NOTE_REQUESTED,
+  type: types.UPDATE_NOTE_SUCCESS,
   payload: {
     old_id,
     id,
