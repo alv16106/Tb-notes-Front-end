@@ -53,7 +53,6 @@ function* mySaga() {
     yield takeLatest(types.REMOVE_NOTE_REQUESTED, deleteNote); // delete notes
     yield takeLatest(types.SHARE_NOTE_REQUESTED, shareNote); // share note
     yield takeLatest(types.UPDATE_NOTE_REQUESTED, updateNote); // update note
-    //
 }
 
 export default mySaga;

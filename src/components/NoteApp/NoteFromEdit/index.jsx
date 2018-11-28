@@ -66,7 +66,7 @@ export default withRouter(connect(
   state => {
     const title = selector(state, 'title');
     const body = selector(state, 'body');
-    const isSending = selectors.itsNoteSending(state);
+    const isSending = selectors.itsNotesLoading(state);
     const noteId = selectors.getCurrentNote(state);
     const note = selectors.getNote(state, noteId);
     const initialValues = {
