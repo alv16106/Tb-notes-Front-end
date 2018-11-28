@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form'
+import uuid from 'uuid-v4';
 
-import { customInput } from '../../customInputs';
 import Popup, { PopupHeader, PopupContent } from '../../Popup';
 import FriendItem from '../../FriendItem';
 import * as actions from '../../../actions';
@@ -22,8 +21,7 @@ class FriendPopup extends Component {
   }
 
   render() {
-    const { friends } = this.props;
-    console.log(friends);
+    const { friends, requestFriendship } = this.props;
     return (
       <Popup hide={actions.hideFriendForm}>
         <PopupHeader>
@@ -38,7 +36,9 @@ class FriendPopup extends Component {
               )
             )}
           </ul>
-          <FriendPopupForm/>
+          <FriendPopupForm
+            onSubmit={values => requestFriendship(values)}
+          />
         </PopupContent>
 
       </Popup>
@@ -54,5 +54,10 @@ export default connect(
     requestFriends: () => {
       dispatch(actions.fetchFriendsRequest());
     },
+    requestFriendship(values) {
+      console.log(values);
+      
+      dispatch(actions.addFriendRequest(uuid(), values.username))
+    }
   })
 )(FriendPopup);

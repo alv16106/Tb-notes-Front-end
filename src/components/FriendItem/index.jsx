@@ -23,8 +23,6 @@ export default connect(
   undefined,
   (dispatch, { id }) => ({
     selected: () => {
-      console.log("ree fam");
-      
       dispatch(actions.notesFetchFromFriendRequest(id));
     },
     remove: () => dispatch(actions.removeNoteRequest(id)),

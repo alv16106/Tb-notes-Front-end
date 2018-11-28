@@ -14,9 +14,7 @@ import './login-app.css'
 
 class LoginApp extends Component {
   render() {
-    const { login, auth } = this.props
-    console.log(auth);
-    
+    const { login, auth } = this.props    
     return (
       !auth ?
       <div className = "container">

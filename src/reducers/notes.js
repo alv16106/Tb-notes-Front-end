@@ -78,7 +78,6 @@ const byId = (state = {}, action) => {
                     body,
                 };
             });
-            console.log(newState);
             return newState
         }
         default: {

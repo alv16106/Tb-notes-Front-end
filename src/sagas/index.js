@@ -7,6 +7,7 @@ import {
     postNewUser ,
     refreshJWT,
     fetchFriends,
+    requestFriendship
 } from './user';
 import { 
     fetchNotebooks,
@@ -31,6 +32,7 @@ function* mySaga() {
     yield takeLatest(types.USER_CREATION_REQUESTED, postNewUser);   // create user
     yield takeLatest(types.REFRESH_JWT, refreshJWT);                // refresh token
     yield takeLatest(types.FRIENDS_FETCH_REQUESTED, fetchFriends);  // get friends list from user
+    yield takeLatest(types.ADD_FRIEND_REQUESTED, requestFriendship) //try to add friend
     // NOTEBOOKS
     yield takeLatest(types.FETCH_NOTEBOOKS_REQUESTED, fetchNotebooks); // get notebooks from user
     yield takeLatest(types.ADD_NOTEBOOK_REQUESTED, addNotebook); // post new notebook

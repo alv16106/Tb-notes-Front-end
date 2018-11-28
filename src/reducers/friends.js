@@ -7,7 +7,6 @@ const byId = (state = {}, action) => {
     switch (action.type) {
 
         case types.FRIENDS_FETCH_SUCCESS: {
-            console.log(action.payload)
             const { friends } = action.payload;
             const newState = {}
             friends.forEach(element => {

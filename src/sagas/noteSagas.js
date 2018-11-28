@@ -13,7 +13,6 @@ import * as actions from '../actions';
 
 export function* fetchNotes(action) {
   const { uid, token } = yield select(selectors.getUser);
-  console.log(`${BASE_API_URL}/user/${uid}/all-notes/`)
   try {
     const notes = yield call(get, `${BASE_API_URL}/user/${uid}/all-notes/`, token);
     const n = notes === undefined ? [] : notes;
@@ -38,7 +37,6 @@ export function* fetchNotesFromFriend(action) {
 export function* fetchNotasFromNotebook(action) {
   const { token } = yield select(selectors.getUser);
   const currentNotebook = yield select(selectors.getCurrentNotebook);
-  console.log(currentNotebook);
   if (currentNotebook === 'all' || currentNotebook === 'friends') {
     return;
   }
@@ -46,7 +44,6 @@ export function* fetchNotasFromNotebook(action) {
   try {
     const notes = yield call(get, `${BASE_API_URL}/notebook/${id}/all-notes/`, token);
     const n = notes === undefined ? [] : notes;
-    console.log(n);
     yield put(actions.notesFetchSuccess(n));
   }
   catch (e) {
@@ -89,8 +86,12 @@ export function* deleteNote(action) {
   const { id } = action.payload;
   try {
     const deleted = yield call(change, `${BASE_API_URL}/note/${id}/`, token, 'DELETE', {});
-    yield put(actions.removeNoteSuccess(id));
-    yield put(actions.addNotification(notificationID, '#FF6961', 'success', 'Nota borrada'));
+    if(deleted.ok){
+      yield put(actions.removeNoteSuccess(id));
+      yield put(actions.addNotification(notificationID, '#FF6961', 'success', 'Nota borrada'));
+    }else{
+      yield put(actions.addNotification(notificationID, '#FF6961', 'failture', 'Esta nota no le pertenece'));
+    }
   } catch (e) { 
     yield put(actions.addNotification(notificationID, '#FF6961', 'failture', 'No se pudo conectar con el servidor'));
   }

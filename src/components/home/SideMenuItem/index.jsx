@@ -18,7 +18,6 @@ const SideMenuItem = ({
   deletable = true,
 }) => {
   const colorString = (color.charAt(0) === '#' || color.charAt(0) === 'r') ? color : `#${color}`;
-  console.log(select)
   return (
     <li className="itemContainer" onClick={() => selected(active)}>
       <a className={`item ${select ? 'active' : ''}`}>
@@ -42,7 +41,6 @@ export default connect(
   }),
   (dispatch, { id }) => ({
     selected: (active) => {
-      console.log(id, active)
       if (active) {
         switch (id) {
           case 'all': {
